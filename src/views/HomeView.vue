@@ -2,9 +2,6 @@
   <div class="home">
     <Login />
 
-
-
-
     <div class="footer" >
       <Footer />
     </div>
