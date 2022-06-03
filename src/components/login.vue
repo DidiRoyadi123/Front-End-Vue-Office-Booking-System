@@ -20,6 +20,9 @@ export default {
 </script>
 
 <style>
+img{
+    margin-bottom: 5%;
+}
 
 .btn {
     padding-right: 40px !important;
