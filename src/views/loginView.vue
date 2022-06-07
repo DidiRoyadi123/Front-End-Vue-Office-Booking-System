@@ -1,10 +1,6 @@
 <template>
-  <div class="home">
+  <div class="login">
     <Login />
-
-
-
-
     <div class="footer" >
       <Footer />
     </div>
@@ -19,7 +15,7 @@ import Login from '@/components/login.vue'
 import Footer from '@/components/footerComponent.vue'
 
 export default {
-  name: 'HomeView',
+  name: 'loginView',
   components: {
     Login,
     Footer

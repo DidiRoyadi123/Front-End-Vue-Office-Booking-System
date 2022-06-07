@@ -8,7 +8,7 @@
             <b-form-input id="input-small" size="sm" type="password" placeholder="Password"></b-form-input> <br>
              
         </b-container>
-        <router-link to="/:about">
+        <router-link to="/beranda">
             <b-button >login</b-button>
         </router-link>  
     </div>

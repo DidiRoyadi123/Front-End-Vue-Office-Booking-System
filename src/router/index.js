@@ -1,23 +1,23 @@
 import Vue from 'vue'
 import VueRouter from 'vue-router'
-import HomeView from '../views/HomeView.vue'
-import AboutView from '../views/AboutView.vue'
+import loginView from '../views/loginView.vue'
+import berandaView from '../views/berandaView.vue'
 
 Vue.use(VueRouter)
 
 const routes = [
   {
     path: '/',
-    name: 'home',
-    component: HomeView
+    name: 'login',
+    component: loginView
   },
   {
-    path: '/:about',
-    name: 'about',
+    path: '/beranda',
+    name: 'beranda',
     // route level code-splitting
     // this generates a separate chunk (about.[hash].js) for this route
     // which is lazy-loaded when the route is visited.
-    component: AboutView
+    component: berandaView
   }
 ]
 

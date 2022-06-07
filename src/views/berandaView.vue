@@ -1,11 +1,11 @@
 <template>
-  <div class="about">
+  <div class="Beranda">
     <Navbar />
     <Sidebar />
     <br>
     <br>
     <br>
-    <h1>This is an about page</h1>
+    <h1>This is an Beranda page</h1>
     <Footer />
   </div>
 </template>
@@ -17,7 +17,7 @@ import Sidebar from '@/components/sidebarComponent.vue'
 import Footer from '@/components/footerComponent.vue'
 
 export default {
-  name: 'HomeView',
+  name: 'berandaView',
   components: {
     Navbar,
     Sidebar,

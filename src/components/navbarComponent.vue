@@ -8,10 +8,9 @@
     </b-navbar>
     <b-navbar-toggle target="nav-collapse"></b-navbar-toggle>
     <b-collapse id="nav-collapse" is-nav>
-      
-      <b-navbar-nav class="ml-auto" >        
-        <b-nav-item-dropdown text="Selamat Datang">
-          <b-dropdown-item href="#">Admin</b-dropdown-item>
+      <div class="spacer">|</div>
+      <b-navbar-nav class="ml-auto px-2" >        
+        <b-nav-item-dropdown text="Selamat Datang Admin">
           <b-dropdown-item href="#">Sign Out</b-dropdown-item>
         </b-nav-item-dropdown>
       </b-navbar-nav>
@@ -29,5 +28,13 @@ export default{
 <style>
 .navbar-nav {
   margin-right: 1000px;
+}
+.navbar-expand-lg .navbar-collapse{
+  padding-left: 30%;
+  padding-right: 0%;
+}
+.spacer{
+  color: white;
+  font-size: 30px;
 }
 </style>
