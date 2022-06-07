@@ -6,7 +6,7 @@
 
 
     <div class="footer" >
-      <Footer />
+      <Footer/>
     </div>
   </div>
 
