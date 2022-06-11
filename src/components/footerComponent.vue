@@ -2,15 +2,18 @@
     <div class="footer">
          <!-- Copyright -->
     <div class="text-center">
-      © 2021 Copyright: Kantoor
+      © 2022 Copyright: Kantoor
     </div>
     <!-- Copyright -->
     </div>
 </template>
 <style>
+div.footer{
+  margin-top: 20px;
+}
 .text-center{
+padding: 12px ;
 background-color: #0E562D;
 color: white;
-
 }
 </style>

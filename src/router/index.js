@@ -20,42 +20,42 @@ const routes = [
   },
   {
     path: '/beranda',
-    name: 'beranda',
+    name: '',
     component: berandaView
   },
   {
     path: '/addGedung',
-    name: 'addGedung',
+    name: 'Pembuatan Daftar Gedung',
     component: addGedung
   },
   {
     path: '/kelolaGedung',
-    name: 'kelolaGedung',
+    name: 'Kelola Gedung',
     component: kelolaGedung
   },
   {
     path: '/daftarPengguna',
-    name: 'daftarPengguna',
+    name: 'Daftar Pengguna',
     component: daftarPengguna
   },
   {
     path: '/daftarUlasan',
-    name: 'daftarUlasan',
+    name: 'Daftar Ulasan',
     component: daftarUlasan
   },
   {
     path: '/pemesanan',
-    name: 'pemesanan',
+    name: 'Pemesanan',
     component: pemesanan
   },
   {
     path: '/addPromosi',
-    name: 'addPromosi',
+    name: 'Tambah Promosi',
     component: addPromosi
   },
   {
     path: '/kelolaPromosi',
-    name: 'kelolaPromosi',
+    name: 'Kelola Promosi',
     component: kelolaPromosi
   }
 ]
