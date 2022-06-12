@@ -42,7 +42,7 @@ export default {
 
 </script>
 
-<style>
+<style scoped>
 img {
     margin-bottom: 5%;
 }
