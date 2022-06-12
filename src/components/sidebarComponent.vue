@@ -17,9 +17,9 @@
               <b-list-group-item href="/beranda" variant="light">Beranda</b-list-group-item>
 
               <b-list-group-item href="#" variant="light">
-                <b-dropdown text="Daftar Gedung" variant="light" >
-                  <b-dropdown-item to="/addGedung">Tambah Gedung</b-dropdown-item>
-                  <b-dropdown-item to="/kelolaGedung">Kelola Gedung</b-dropdown-item>
+                <b-dropdown text="Data Gedung" variant="light" >
+                  <b-dropdown-item to="/tambahGedung">Tambah Gedung</b-dropdown-item>
+                  <b-dropdown-item href="#">Kelola Gedung</b-dropdown-item>
                 </b-dropdown>
               </b-list-group-item>
               <b-list-group-item to="/daftarPengguna" variant="light">Daftar Pengguna</b-list-group-item>
