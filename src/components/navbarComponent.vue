@@ -2,7 +2,7 @@
   <div class="navbar">
     <b-navbar toggleable="lg" type="dark" variant="success" fixed="top">
       <b-button size="sm" v-b-toggle.sidebar-menu>
-        <b-icon icon="list"></b-icon>
+        <b-icon icon="list" class="hamburger"></b-icon>
       </b-button>
       <!-- <b-navbar-brand href="#">SISTEM MANAJEMEN BOOKING GEDUNG ONLINE</b-navbar-brand> -->
       <b-navbar variant="faded" type="light">
@@ -33,7 +33,7 @@ export default {
 }
 </script>
 
-<style>
+<style scoped>
 .navbar-nav {
   margin-right: 1000px;
 }
@@ -51,7 +51,31 @@ export default {
 .navbar-dark .navbar-nav .nav-link:focus {
   color: white !important;
 }
+
 svg {
   padding-left: 5px;
+}
+
+.hamburger {
+  padding-right: 20px !important;
+  background-color: #1CAB59 !important;
+
+}
+
+.btn-secondary {
+  color: #fff;
+  background-color: #1CAB59;
+  border-color: #1CAB59 !important;
+  border: 0px;
+}
+
+.btn-secondary:focus {
+  background-color: #1CAB59;
+  border-color: #1CAB59;
+}
+
+.btn-secondary:hover {
+  background-color: #1CAB59;
+  border-color: #1CAB59;
 }
 </style>
