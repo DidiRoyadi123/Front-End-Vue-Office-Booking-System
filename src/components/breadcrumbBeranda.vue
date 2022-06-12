@@ -12,12 +12,17 @@
 
 <script>
 // @ is an alias to /src
+<<<<<<< HEAD
 
 
 export default {
   name: 'breadCrumbComponent',
 
 
+=======
+export default {
+  name: 'breadCrumbComponent',
+>>>>>>> feat-Beranda
 }
 </script>
 
@@ -25,11 +30,17 @@ export default {
 body {
   background-color: #E5E5E5 !important;
 }
+<<<<<<< HEAD
 
 .card-body {
   padding: 17px 0px 0px 20px !important;
 }
 
+=======
+.card-body {
+  padding: 17px 0px 0px 20px !important;
+}
+>>>>>>> feat-Beranda
 .breadcrumb>li+li:before {
   color: #ccc !important;
   content: "> " !important;
