@@ -2,7 +2,7 @@
     <div class="footer">
          <!-- Copyright -->
     <div class="text-center">
-      © 2021 Copyright: Kantoor
+      ©{{ new Date().getFullYear() }} Copyright: Kantoor
     </div>
     <!-- Copyright -->
     </div>
