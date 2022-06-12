@@ -17,7 +17,7 @@
               <b-list-group-item href="/beranda" variant="light">Beranda</b-list-group-item>
 
               <b-list-group-item href="#" variant="light">
-                <b-dropdown text="Daftar Gedung" variant="light" >
+                <b-dropdown text="Data Gedung" variant="light" >
                   <b-dropdown-item to="/tambahGedung">Tambah Gedung</b-dropdown-item>
                   <b-dropdown-item href="#">Kelola Gedung</b-dropdown-item>
                 </b-dropdown>
