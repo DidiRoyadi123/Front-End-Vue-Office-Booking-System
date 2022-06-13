@@ -5,41 +5,50 @@
       <!-- <template #default="{ hide }"> -->
       <div class="p-3">
         <img alt="Vue logo" src="../assets/logo.png">
-        <nav class="mb-3">
-          <!-- <b-nav vertical>
-              <b-nav-item active @click="hide">Active</b-nav-item>
-              <b-nav-item href="#link-1" @click="hide">Link</b-nav-item>
-              <b-nav-item href="#link-2" @click="hide">Another Link</b-nav-item>
-            </b-nav> -->
+        <nav >
+          
 
-          <b-card no-body>
-            <b-list-group flush class="flex-column align-items-start" vertical="md">
+          <!-- <b-card no-body> -->
+            <b-list-group flush class="d-flex align-items-center" vertical="md">
               <b-list-group-item href="/beranda" variant="light">Beranda</b-list-group-item>
 
-              <b-list-group-item href="#" variant="light">
-                <b-dropdown text="Daftar Gedung" variant="light" >
+              <!-- <b-list-group-item href="#" variant="light">
+                <b-dropdown text="Daftar Gedung" variant="light"  >
                   <b-dropdown-item to="/addGedung">Tambah Gedung</b-dropdown-item>
                   <b-dropdown-item to="/kelolaGedung">Kelola Gedung</b-dropdown-item>
-                </b-dropdown>
-                <!-- <div no-body border-variant="0" class="mb-1">
-                    <b-button v-b-toggle.accordion-2 variant="light">Daftar Gedung</b-button>
-                  <b-collapse id="accordion-2" accordion="my-accordion" role="tabpanel">
-                    <div to="/addGedung" variant="light">Tambah Gedung</div>
-                    <div to="/kelolaGedung" variant="light">Kelola Gedung</div>
+                </b-dropdown> -->
+
+                <!-- <b-card no-body class="mb-1"> -->
+                  <!-- <b-card-header header-tag="header" class="p-1" role="tab"> -->
+                    <b-button block v-b-toggle.accordion-1 variant="light" class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#panelsStayOpen-collapseOne" aria-expanded="true" aria-controls="panelsStayOpen-collapseOne">Daftar Gedung</b-button>
+                  <!-- </b-card-header> -->
+                  <b-collapse id="accordion-1" visible accordion="my-accordion" role="tabpanel">
+                    <!-- <b-card-body> -->
+                        <!-- <b-card-text> -->
+                              <b-list-group-item to="/addGedung" variant="light">Tambah Gedung</b-list-group-item>
+                              <b-list-group-item to="/kelolaGedung" variant="light">Kelola Gedung</b-list-group-item>
+                        <!-- </b-card-text> -->
+                      <!-- </b-card-body> -->
                   </b-collapse>
-                </div> -->
-              </b-list-group-item>
+                <!-- </b-card> -->
+
+              <!-- </b-list-group-item> -->
               <b-list-group-item to="/daftarPengguna" variant="light">Daftar Pengguna</b-list-group-item>
               <b-list-group-item to="/daftarUlasan" variant="light">Daftar Ulasan</b-list-group-item>
               <b-list-group-item to="/pemesanan" variant="light">Pemesanan</b-list-group-item>
-              <b-list-group-item href="#" variant="light">
-                <b-dropdown text="Promosi" variant="light" >
+              <b-button block v-b-toggle.accordion-1 variant="light" class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#panelsStayOpen-collapseOne" aria-expanded="true" aria-controls="panelsStayOpen-collapseOne">Promosi</b-button> 
+                  <b-collapse id="accordion-1" visible accordion="my-accordion" role="tabpanel">
+                              <b-list-group-item to="/addPromosi" variant="light">Tambah Promosi</b-list-group-item>
+                              <b-list-group-item to="/kelolaPromosi" variant="light">Kelola Promosi</b-list-group-item>
+                  </b-collapse>
+              <!-- <b-list-group-item href="#" variant="light"> -->
+                <!-- <b-dropdown text="Promosi" variant="light" >
                   <b-dropdown-item to="/addPromosi">Tambah Promosi</b-dropdown-item>
                   <b-dropdown-item to="/kelolaPromosi">Kelola Promosi</b-dropdown-item>
-                </b-dropdown>
-              </b-list-group-item>
+                </b-dropdown> -->
+              <!-- </b-list-group-item> -->
             </b-list-group>
-          </b-card>
+          <!-- </b-card> -->
         </nav>
 
       </div>
@@ -60,8 +69,10 @@ export default {
 
 </script>
 
-<style>
+<style >
+  
 .list-group-item {
+  text-align: left;
   color: #BBBBBB;
 }
 
@@ -91,4 +102,9 @@ export default {
   background-color: #B3E3C8 !important;
   border-color: #B3E3C8 !important;
 }
+.img{
+  width:80px;
+
+}
+
 </style>
