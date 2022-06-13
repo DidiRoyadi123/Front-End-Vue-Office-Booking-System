@@ -59,6 +59,7 @@
 // @ is an alias to /src
 import Navbar from '@/components/navbarComponent.vue'
 import Sidebar from '@/components/sidebarComponent.vue'
+
 import Footer from '@/components/footerComponent.vue'
 import BreadcrumbKelolaGedung from '@/components/breadcrumbKelolaGedung.vue'
 
@@ -69,19 +70,11 @@ export default {
     Sidebar,
     Footer,
     BreadcrumbKelolaGedung
-  },
-  data() {
-    return {
-      items: [
-        { No: 1, ID_Gedung: '002', Lokasi: 'Macdonald', Harga: 'Rp. 100.000/Day' },
-        { No: 2, ID_Gedung: '003', Lokasi: 'Shaw ', Harga: 'Rp. 100.000/Day' },
-        { No: 3, ID_Gedung: '004', Lokasi: 'Wilson', Harga: 'Rp. 100.000/Day' },
-        { No: 4, ID_Gedung: '005', Lokasi: 'Carney', Harga: 'Rp. 100.000/Day' },
-      ]
+  
     }
   }
 
-}
+
 </script>
 
 <style scoped>

@@ -5,7 +5,9 @@
     <br>
     <br>
     <br>
-    <breadcrumbComponentVue />
+    <Breadcrumb />
+    <br>
+    <br>
     <b-card-group class="box">
       <b-card bg-variant="success" text-variant="white" class="text-center">
         <b-card-text>
@@ -97,6 +99,7 @@
 // @ is an alias to /src
 import Navbar from '@/components/navbarComponent.vue'
 import Sidebar from '@/components/sidebarComponent.vue'
+import Breadcrumb from '../components/breadcrumb.vue'
 import Footer from '@/components/footerComponent.vue'
 import breadcrumbComponentVue from '../components/breadcrumbBeranda.vue'
 
@@ -107,9 +110,9 @@ export default {
     Navbar,
     breadcrumbComponentVue,
     Sidebar,
+    Breadcrumb,
     Footer
   },
-
 }
 </script>
 
@@ -117,28 +120,23 @@ export default {
 body {
   background-color: #E5E5E5 !important;
 }
-
 .text-center {
   border: 20px solid #E5E5E5 !important;
 }
-
 .box {
   height: 200px;
   background: #1CAB59 !important;
 }
-
 svg {
   width: 45px;
   height: 45px;
   margin: 0 auto;
   display: block;
 }
-
 path {
   fill: #F4F4F4 !important;
   ;
 }
-
 .card-text {
   font-weight: 700;
 }
