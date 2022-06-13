@@ -91,7 +91,7 @@
         <b-card-text>3</b-card-text>
       </b-card>
     </b-card-group>
-    <Footer />
+    <FooterComponent />
   </div>
 </template>
 
@@ -100,7 +100,7 @@
 import Navbar from '@/components/navbarComponent.vue'
 import Sidebar from '@/components/sidebarComponent.vue'
 import Breadcrumb from '../components/breadcrumb.vue'
-import Footer from '@/components/footerComponent.vue'
+import FooterComponent from '@/components/footerComponent.vue'
 
 export default {
   name: 'berandaView',
@@ -108,14 +108,18 @@ export default {
     Navbar,
     Sidebar,
     Breadcrumb,
-    Footer
+    FooterComponent
   },
 }
 </script>
 
 <style scoped>
-body {
+.Beranda {
   background-color: #E5E5E5 !important;
+  height: 100vh;
+}
+.card-body{
+  background-color: #1CAB59;
 }
 .text-center {
   border: 20px solid #E5E5E5 !important;

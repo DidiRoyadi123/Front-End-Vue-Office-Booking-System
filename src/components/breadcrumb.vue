@@ -44,9 +44,9 @@ data () {
 }
 </script>
 
-<style>
+<style scoped>
 body {
-  background-color: #E5E5E5 !important;
+  background-color: #ccc !important;
 }
 
 .card-body {
@@ -54,8 +54,8 @@ body {
 }
 
 div.breadcrumb{
-  /* margin-right: 25px;
-  margin-left: 25px; */
+  margin-right: 25px;
+  margin-left: 25px;
   margin-top: 10px;
   display: block;
 }

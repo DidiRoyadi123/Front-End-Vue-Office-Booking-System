@@ -7,10 +7,7 @@
     <!-- Copyright -->
     </div>
 </template>
-<style>
-div.footer{
-  margin-top: 20px;
-}
+<style scoped>
 .text-center{
 padding: 12px ;
 background-color: #0E562D;

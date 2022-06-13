@@ -21,6 +21,13 @@
                   <b-dropdown-item to="/addGedung">Tambah Gedung</b-dropdown-item>
                   <b-dropdown-item to="/kelolaGedung">Kelola Gedung</b-dropdown-item>
                 </b-dropdown>
+                <!-- <div no-body border-variant="0" class="mb-1">
+                    <b-button v-b-toggle.accordion-2 variant="light">Daftar Gedung</b-button>
+                  <b-collapse id="accordion-2" accordion="my-accordion" role="tabpanel">
+                    <div to="/addGedung" variant="light">Tambah Gedung</div>
+                    <div to="/kelolaGedung" variant="light">Kelola Gedung</div>
+                  </b-collapse>
+                </div> -->
               </b-list-group-item>
               <b-list-group-item to="/daftarPengguna" variant="light">Daftar Pengguna</b-list-group-item>
               <b-list-group-item to="/daftarUlasan" variant="light">Daftar Ulasan</b-list-group-item>

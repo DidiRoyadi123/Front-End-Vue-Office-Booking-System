@@ -6,8 +6,10 @@
     <br>
     <br>
     <Breadcrumb />
-    <h1>Halaman Daftar Pengguna</h1>
-    <Footer />
+    <b-card>
+
+    </b-card>
+    <FooterComponent />
   </div>
 </template>
 
@@ -16,7 +18,7 @@
 import Navbar from '@/components/navbarComponent.vue'
 import Sidebar from '@/components/sidebarComponent.vue'
 import Breadcrumb from '../components/breadcrumb.vue'
-import Footer from '@/components/footerComponent.vue'
+import FooterComponent from '@/components/footerComponent.vue'
 
 export default {
   name: 'daftarPengguna',
@@ -24,8 +26,21 @@ export default {
     Navbar,
     Sidebar,
     Breadcrumb,
-    Footer
+    FooterComponent
   },
 
 }
 </script>
+
+<style scoped>
+.list{
+  background-color: #e5e5e5;
+}
+.card{
+ margin-right: 25px;
+ margin-left: 25px;
+ margin-bottom: 40px;
+ margin-top: 0px;
+}
+
+</style>

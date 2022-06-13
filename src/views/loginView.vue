@@ -2,7 +2,7 @@
   <div class="login">
     <Login />
     <div class="footer" >
-      <Footer/>
+      <FooterComponent/>
     </div>
   </div>
 </template>
@@ -10,13 +10,13 @@
 <script>
 // @ is an alias to /src
 import Login from '@/components/login.vue';
-import Footer from '@/components/footerComponent.vue';
+import FooterComponent from '@/components/footerComponent.vue';
 
 export default {
   name: 'loginView',
   components: {
     Login,
-    Footer,
+    FooterComponent,
   },
 };
 </script>

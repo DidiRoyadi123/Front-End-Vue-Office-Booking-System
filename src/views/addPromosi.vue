@@ -7,7 +7,7 @@
     <br>
     <Breadcrumb />
     <h1>Halaman Tambah Promosi</h1>
-    <Footer />
+    <FooterComponent />
   </div>
 </template>
 
@@ -16,7 +16,7 @@
 import Navbar from '@/components/navbarComponent.vue'
 import Sidebar from '@/components/sidebarComponent.vue'
 import Breadcrumb from '../components/breadcrumb.vue'
-import Footer from '@/components/footerComponent.vue'
+import FooterComponent from '@/components/footerComponent.vue'
 
 export default {
   name: 'addPromosi',
@@ -24,7 +24,7 @@ export default {
     Navbar,
     Sidebar,
     Breadcrumb,  
-    Footer
+    FooterComponent
   },
 
 }
