@@ -101,14 +101,13 @@ import Navbar from '@/components/navbarComponent.vue'
 import Sidebar from '@/components/sidebarComponent.vue'
 import Breadcrumb from '../components/breadcrumb.vue'
 import Footer from '@/components/footerComponent.vue'
-import breadcrumbComponentVue from '../components/breadcrumbBeranda.vue'
+
 
 
 export default {
   name: 'berandaView',
   components: {
     Navbar,
-    breadcrumbComponentVue,
     Sidebar,
     Breadcrumb,
     Footer
