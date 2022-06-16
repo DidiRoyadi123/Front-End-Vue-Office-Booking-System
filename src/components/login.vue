@@ -2,6 +2,7 @@
     <div class="login">
         <img alt="Vue logo" src="../assets/logo.png">
         <h2>Selamat Datang</h2>
+        <br>
         <b-container fluid>
             <i class="bi bi-person-circle"></i>
             <b-form-input id="input-small" size="sm" placeholder="username"></b-form-input> <br>
@@ -18,14 +19,12 @@
 export default {
     name: 'loginComponent',
 }
-
 </script>
 
 <style>
 img{
     margin-bottom: 5%;
 }
-
 .btn {
     padding-right: 40px !important;
     padding-left: 40px !important;
@@ -41,7 +40,6 @@ img{
     height: 40px;
     
 }
-
 .container-fluid{
     padding-left: 10%;
     padding-right: 10%;
