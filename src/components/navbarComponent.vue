@@ -33,6 +33,10 @@ export default{
 
 <style scoped>
 
+h1.navbar-brand{
+  margin: 0 !important;
+}
+
 svg{
   padding-top: 3px;
 }
