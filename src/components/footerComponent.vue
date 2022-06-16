@@ -7,7 +7,7 @@
     <!-- Copyright -->
     </div>
 </template>
-<style>
+<style scoped>
 .text-center{
 background-color: #0E562D;
 color: white;
