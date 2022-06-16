@@ -142,4 +142,5 @@ path {
 .card-text {
   font-weight: 700;
 }
+
 </style>

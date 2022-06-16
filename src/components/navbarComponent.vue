@@ -1,8 +1,8 @@
 <template>
   <div class="navbar">
     <b-navbar toggleable="lg" type="dark" variant="success" fixed="top">
-      <b-button size="sm" v-b-toggle.sidebar-menu>
-        <b-icon icon="list"></b-icon>
+      <b-button class="list" size="md" v-b-toggle.sidebar-menu variant="success">
+        <b-icon  icon="list" ></b-icon>
       </b-button>
       <!-- <b-navbar-brand href="#">SISTEM MANAJEMEN BOOKING GEDUNG ONLINE</b-navbar-brand> -->
       <b-navbar variant="faded" type="light">
@@ -33,7 +33,7 @@ export default {
 }
 </script>
 
-<style>
+<style scoped>
 .navbar-nav {
   margin-right: 1000px;
 }
@@ -54,4 +54,5 @@ export default {
 svg {
   padding-left: 5px;
 }
+
 </style>
