@@ -19,6 +19,7 @@
 
         <b-navbar-nav class="ml-auto px-2">
           <b-nav-item-dropdown text="Selamat Datang Admin">
+            <b-dropdown-item href="#">Profil</b-dropdown-item>
             <b-dropdown-item href="#">Sign Out</b-dropdown-item>
           </b-nav-item-dropdown>
         </b-navbar-nav>

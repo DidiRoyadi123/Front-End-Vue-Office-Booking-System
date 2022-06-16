@@ -3,6 +3,7 @@
         <img alt="Vue logo" src="../assets/logo.png">
         <h2>Selamat Datang</h2>
         <br>
+        <br>
         <b-container fluid>
             <i class="bi bi-person-circle"></i>
             <b-form-input id="input-small" size="sm" placeholder="username"></b-form-input> <br>
