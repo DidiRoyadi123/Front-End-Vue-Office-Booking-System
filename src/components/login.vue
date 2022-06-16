@@ -5,10 +5,8 @@
         <br>
         <br>
         <b-container fluid>
-            <i class="bi bi-person-circle"></i>
-            <b-form-input id="input-small" size="sm" placeholder="username"></b-form-input> <br>
+            <b-form-input id="input-small" size="sm" placeholder="Username"></b-form-input> <br>
             <b-form-input id="input-small" size="sm" type="password" placeholder="Password"></b-form-input> <br>
-             
         </b-container>
         <router-link to="/beranda">
             <b-button >login</b-button>

@@ -70,7 +70,6 @@ export default {
 <style >
   
 .list-group-item {
-  text-align: left;
   color: #BBBBBB;
 }
 .list-group-item-light.list-group-item-action:hover,
@@ -96,7 +95,8 @@ export default {
   background-color: #B3E3C8 !important;
   border-color: #B3E3C8 !important;
 }
-.img{
-  width:80px;
+img{
+  width:95px;
 }
+
 </style>
