@@ -2,6 +2,8 @@
     <div class="login">
         <img alt="Vue logo" src="../assets/logo.png">
         <h2>Selamat Datang</h2>
+        <br>
+        <br>
         <b-container fluid>
             <b-input-group>
                 <b-input-group-prepend>
@@ -74,7 +76,6 @@ export default {
         }
     }
 }
-
 </script>
 
 <style scoped>
