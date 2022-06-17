@@ -13,7 +13,9 @@
   text-align: center;
   color: #2c3e50;
 }
-
+.login {
+  background-color: white;
+}
 nav {
   padding: 30px;
 }

@@ -1,6 +1,7 @@
 <template>
   <div class="login">
     <Login />
+    <div class="whiteSpace"></div>
     <div class="footer" >
       <Footer/>
     </div>
@@ -21,7 +22,14 @@ export default {
 };
 </script>
 
-<style>
+<style scoped>
+body{
+  background-color: #E5E5E5 !important;
+}
+.whiteSpace{
+  display: block;
+  padding-bottom:25%;
+}
 .footer {
   position: fixed;
   bottom: 0px;
