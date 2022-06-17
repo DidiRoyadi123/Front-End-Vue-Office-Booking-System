@@ -5,12 +5,6 @@
           <b-breadcrumb-item to="/beranda">Beranda</b-breadcrumb-item>
           <b-breadcrumb-item v-for="item in items" :key="item.path" :to="item.path">{{item.name}}</b-breadcrumb-item>
         </b-breadcrumb>
-
-      <div id="nav">
-        <router-link to="/beranda"></router-link>
-        <router-link to="/beranda/addGedung"></router-link>
-        <router-link to="/beranda/kelolaGedung"></router-link>
-      </div>
     </b-card>
   </div>
 </template>
@@ -53,9 +47,18 @@ div.breadcrumb{
   margin-left: 25px;
   margin-top: 10px;
   display: block;
+  
 }
 .breadcrumb>li+li:before {
   color: #ccc !important;
   content: "> " !important;
+}
+a{
+text-decoration: none !important;
+color: #0E562D;
+font-weight: 400;
+}
+a:hover{
+  color: #09af51;
 }
 </style>
