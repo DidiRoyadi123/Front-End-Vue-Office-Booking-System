@@ -15,19 +15,19 @@
             <label for="input-small" class="text1"><strong>Password Lama:</strong></label>
           </b-col>
           <b-col sm="10">
-            <b-form-input id="input-small" size="sm" placeholder="Masukkan Password Lama"></b-form-input>
+            <b-form-input id="input-small" type="password" size="sm" placeholder="Masukkan Password Lama"></b-form-input>
           </b-col>
           <b-col sm="2" class="row mb-3">
             <label for="input-small" class="text1"><strong>Password Baru:</strong></label>
           </b-col>
           <b-col sm="10">
-            <b-form-input id="input-small" size="sm" placeholder="Masukkan Password Baru"></b-form-input>
+            <b-form-input id="input-small" type="password" size="sm" placeholder="Masukkan Password Baru"></b-form-input>
           </b-col>
           <b-col sm="2" class="row mb-3">
             <label for="input-small" class="text1"><strong>Konfirmasi Password Baru:</strong></label>
           </b-col>
           <b-col sm="10">
-            <b-form-input id="input-small" size="sm" placeholder="Konfirmasi Password Baru"></b-form-input>
+            <b-form-input id="input-small" type="password" size="sm" placeholder="Konfirmasi Password Baru"></b-form-input>
           </b-col>
           <b-col sm="2" class="row"> </b-col>
           <b-col sm="2">
