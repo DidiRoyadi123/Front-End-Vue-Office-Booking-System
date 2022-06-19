@@ -1,10 +1,9 @@
 <template>
   <div class="sidebar">
-    <b-sidebar id="sidebar-menu" aria-labelledby="sidebar-menu-title" no-header shadow :backdrop-variant="variant"
-      backdrop>
+    <b-sidebar id="sidebar-menu" aria-labelledby="sidebar-menu-title" no-header shadow :backdrop-variant="variant" backdrop>
       <!-- <template #default="{ hide }"> -->
       <div class="p-3">
-        <img alt="Vue logo" src="../assets/logo.png">
+        <img alt="Vue logo" src="../assets/logo.png" />
         <nav class="mb-3">
           <!-- <b-nav vertical>
               <b-nav-item active @click="hide">Active</b-nav-item>
@@ -17,8 +16,8 @@
               <b-list-group-item href="/beranda" variant="light">Beranda</b-list-group-item>
 
               <b-list-group-item href="#" variant="light">
-                <b-dropdown text="Data Gedung" variant="light" >
-                  <b-dropdown-item to="/tambahGedung">Tambah Gedung</b-dropdown-item>
+                <b-dropdown text="Data Gedung" variant="light">
+                  <b-dropdown-item to="/addGedung">Tambah Gedung</b-dropdown-item>
                   <b-dropdown-item href="#">Kelola Gedung</b-dropdown-item>
                 </b-dropdown>
               </b-list-group-item>
@@ -26,7 +25,7 @@
               <b-list-group-item to="/daftarUlasan" variant="light">Daftar Ulasan</b-list-group-item>
               <b-list-group-item to="/pemesanan" variant="light">Pemesanan</b-list-group-item>
               <b-list-group-item href="#" variant="light">
-                <b-dropdown text="Promosi" variant="light" >
+                <b-dropdown text="Promosi" variant="light">
                   <b-dropdown-item to="/addPromosi">Tambah Promosi</b-dropdown-item>
                   <b-dropdown-item to="/kelolaPromosi">Kelola Promosi</b-dropdown-item>
                 </b-dropdown>
@@ -34,7 +33,6 @@
             </b-list-group>
           </b-card>
         </nav>
-
       </div>
       <!-- </template> -->
     </b-sidebar>
@@ -45,26 +43,23 @@
 export default {
   name: 'sidebarComponent',
   data() {
-    return {
-
-    }
+    return {};
   },
-}
-
+};
 </script>
 
 <style>
 .list-group-item {
-  color: #BBBBBB;
+  color: #bbbbbb;
 }
 
 .list-group-item-light.list-group-item-action:hover,
 .list-group-item-light.list-group-item-action:focus {
-  color: #0E562D !important;
-  background-color: #B3E3C8 !important;
+  color: #0e562d !important;
+  background-color: #b3e3c8 !important;
 }
 
-.card>.list-group:first-child .list-group-item:first-child {
+.card > .list-group:first-child .list-group-item:first-child {
   border-width: 100% !important;
 }
 
@@ -81,7 +76,7 @@ export default {
 }
 
 .btn-light:hover {
-  background-color: #B3E3C8 !important;
-  border-color: #B3E3C8 !important;
+  background-color: #b3e3c8 !important;
+  border-color: #b3e3c8 !important;
 }
 </style>

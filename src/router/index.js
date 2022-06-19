@@ -1,14 +1,15 @@
-import Vue from 'vue'
-import VueRouter from 'vue-router'
-import loginView from '../views/loginView.vue'
-import berandaView from '../views/berandaView.vue'
-import addGedung from '../views/addGedung.vue'
-import kelolaGedung from '../views/kelolaGedung.vue'
-import daftarPengguna from '../views/daftarPengguna.vue'
-import daftarUlasan from '../views/daftarUlasan.vue'
-import pemesanan from '../views/pemesanan.vue'
-import addPromosi from '../views/addPromosi.vue'
-import kelolaPromosi from '../views/kelolaPromosi.vue'
+import Vue from 'vue';
+import VueRouter from 'vue-router';
+import loginView from '../views/loginView.vue';
+import berandaView from '../views/berandaView.vue';
+import addGedung from '../views/addGedung.vue';
+import kelolaGedung from '../views/kelolaGedung.vue';
+import daftarPengguna from '../views/daftarPengguna.vue';
+import daftarUlasan from '../views/daftarUlasan.vue';
+import pemesanan from '../views/pemesanan.vue';
+import addPromosi from '../views/addPromosi.vue';
+import kelolaPromosi from '../views/kelolaPromosi.vue';
+import profilAdmin from '../views/profilAdmin.vue';
 
 Vue.use(VueRouter);
 
@@ -16,50 +17,54 @@ const routes = [
   {
     path: '/',
     name: 'login',
-    component: loginView
+    component: loginView,
   },
   {
     path: '/beranda',
     name: 'beranda',
-    component: berandaView
+    component: berandaView,
   },
   {
     path: '/addGedung',
     name: 'addGedung',
-    component: addGedung
+    component: addGedung,
   },
   {
     path: '/kelolaGedung',
     name: 'kelolaGedung',
-    component: kelolaGedung
+    component: kelolaGedung,
   },
   {
     path: '/daftarPengguna',
     name: 'daftarPengguna',
-    component: daftarPengguna
+    component: daftarPengguna,
   },
   {
     path: '/daftarUlasan',
     name: 'daftarUlasan',
-    component: daftarUlasan
+    component: daftarUlasan,
   },
   {
     path: '/pemesanan',
     name: 'pemesanan',
-    component: pemesanan
+    component: pemesanan,
   },
   {
     path: '/addPromosi',
     name: 'addPromosi',
-    component: addPromosi
+    component: addPromosi,
   },
   {
     path: '/kelolaPromosi',
     name: 'kelolaPromosi',
-    component: kelolaPromosi
-  }
-]
-
+    component: kelolaPromosi,
+  },
+  {
+    path: '/profilAdmin',
+    name: 'profilAdmin',
+    component: profilAdmin,
+  },
+];
 
 const router = new VueRouter({
   mode: 'history',
