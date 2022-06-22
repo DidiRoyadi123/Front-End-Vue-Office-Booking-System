@@ -9,6 +9,7 @@ import daftarUlasan from '../views/daftarUlasan.vue'
 import pemesanan from '../views/pemesanan.vue'
 import addPromosi from '../views/addPromosi.vue'
 import kelolaPromosi from '../views/kelolaPromosi.vue'
+import profilAdmin from '../views/profilAdmin.vue';
 
 Vue.use(VueRouter);
 
@@ -62,7 +63,12 @@ const routes = [
     path: '/kelolaPromosi',
     name: 'Kelola Promosi',
     component: kelolaPromosi
-  }
+  },
+  {
+    path: '/profilAdmin',
+    name: 'Profil Admin',
+    component: profilAdmin,
+  },
 ]
 
 

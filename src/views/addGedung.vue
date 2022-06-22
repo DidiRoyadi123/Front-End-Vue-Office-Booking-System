@@ -171,6 +171,7 @@ export default {
 </script>
 
 <style scoped>
+
 .list{
   background-color: #e5e5e5;
 }
