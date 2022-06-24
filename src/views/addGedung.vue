@@ -13,7 +13,7 @@
           <div>
             <b-form @submit="onSubmit" @reset="onReset" v-if="show">
                 <b-row class="mt-2">
-                <b-col sm="2">
+                <b-col sm="2" class="text-end">
                   <b-form-group id="input-group-1" label="Jenis Gedung :" label-for="input-1"></b-form-group>
                 </b-col>
                 <b-col sm="10">
@@ -27,11 +27,11 @@
                 </b-row>
 
                 <b-row class="mt-2">
-                <b-col sm="2">
+                <b-col sm="2" class="text-end">
                 <b-form-group id="input-group-2" label="Nama Gedung :" label-for="input-2"></b-form-group>
                 </b-col>
                 <b-col sm="10">
-                  <b-form-input
+                     <b-form-input
                       id="input-2"
                       v-model="form.namaGedung"
                       placeholder="Masukkan Nama Gedung"
@@ -41,7 +41,7 @@
                 </b-row>
 
                 <b-row class="mt-2">
-                <b-col sm="2">
+                <b-col sm="2" class="text-end">
                 <b-form-group id="input-group-3" label="Lokasi :" label-for="input-3"></b-form-group>
                 </b-col>
                 <b-col sm="10">
@@ -55,7 +55,7 @@
                 </b-row>
 
                 <b-row class="mt-2">
-                <b-col sm="2">
+                <b-col sm="2" class="text-end">
                   <b-form-group id="input-group-4" label="Harga :" label-for="input-4"></b-form-group>
                 </b-col>
                 <b-col sm="10">
@@ -69,7 +69,7 @@
                 </b-row>
 
                 <b-row class="mt-2">
-                <b-col sm="2">
+                <b-col sm="2" class="text-end">
                   <b-form-group id="input-group-5" label="Fasilitas Gedung :" label-for="input-5"></b-form-group>
                 </b-col>
                 <b-col sm="10">
@@ -83,7 +83,7 @@
                 </b-row>
 
                 <b-row class="mt-2">
-                  <b-col sm="2">
+                  <b-col sm="2" class="text-end">
                   <label for="deskripsi">Deskripsi :</label>
                 </b-col>
                 <b-col sm="10">
@@ -95,11 +95,11 @@
                 </b-row>
 
                 <b-row class="mt-2">
-                <b-col sm="2">
+                <b-col sm="2" class="text-end">
                   <div class="mt-3">Selected file: {{ file ? file.name : '' }}</div>
                 </b-col>
                 <b-col sm="10">
-                  <b-form-file v-model="file" class="mt-3" plain></b-form-file>
+                  <b-form-file  v-model="file" class="form-control" plain></b-form-file>
                 </b-col>
                 </b-row>
 
@@ -110,6 +110,10 @@
           </div>   
         </b-card>
       </div>
+      <br>
+      <br>
+      <br>
+      <br>
     <FooterComponent />
   </div>
 </template>

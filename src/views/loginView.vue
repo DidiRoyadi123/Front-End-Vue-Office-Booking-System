@@ -1,7 +1,7 @@
 <template>
   <div class="login">
     <Login />
-    <div class="whiteSpace"></div>
+    <!-- <div class="whiteSpace"></div> -->
     <div class="footer" >
       <FooterComponent/>
     </div>
@@ -26,10 +26,10 @@ export default {
 body{
   background-color: #E5E5E5 !important;
 }
-.whiteSpace{
+/* .whiteSpace{
   display: block;
   padding-bottom:25%;
-}
+} */
 .footer {
   position: fixed;
   bottom: 0px;

@@ -81,6 +81,8 @@ export default {
 <style scoped>
 body {
     background-color: #f5f5f5 !important;
+    height: 10rem;
+    z-index: 1;
 }
 img {
     margin-bottom: 5%;
