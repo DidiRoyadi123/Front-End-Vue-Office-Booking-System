@@ -70,8 +70,8 @@
       <b-card bg-variant="success" text-variant="white" class="text-center">
         <b-card-text>
           <br>
-            <img alt="Icon" src="../assets/history-query.png">
-            <br>
+          <img alt="Icon" src="../assets/history-query.png">
+          <br>
           <br>
           Ulasan
           <br>
@@ -86,15 +86,16 @@
               d="M23.9375 34.9219H35.75C36.3078 34.9219 36.7751 34.7194 37.1517 34.3144C37.5298 33.9108 37.7188 33.4102 37.7188 32.8125V24.375C37.7188 23.7773 37.5298 23.276 37.1517 22.871C36.7751 22.4674 36.3078 22.2656 35.75 22.2656H23.9375C23.3797 22.2656 22.9124 22.4674 22.5357 22.871C22.1578 23.276 21.9688 23.7773 21.9688 24.375V32.8125C21.9688 33.4102 22.1578 33.9108 22.5357 34.3144C22.9124 34.7194 23.3797 34.9219 23.9375 34.9219ZM8.1875 41.25C7.10469 41.25 6.17806 40.8373 5.40763 40.0118C4.63588 39.1849 4.25 38.1914 4.25 37.0312V11.7188C4.25 10.5586 4.63588 9.56578 5.40763 8.74031C6.17806 7.91344 7.10469 7.5 8.1875 7.5H39.6875C40.7703 7.5 41.6976 7.91344 42.4693 8.74031C43.2398 9.56578 43.625 10.5586 43.625 11.7188V37.0312C43.625 38.1914 43.2398 39.1849 42.4693 40.0118C41.6976 40.8373 40.7703 41.25 39.6875 41.25H8.1875ZM8.1875 37.0312V11.7188V37.0312ZM8.1875 37.0312H39.6875V11.7188H8.1875V37.0312Z"
               fill="#F4F4F4" />
           </svg>
-          <br> 
+          <br>
           Pemesanan
           <br>
           3
         </b-card-text>
       </b-card>
     </b-card-group>
+    <liveChatBtn/>
     <FooterComponent />
-      <!-- <button type="button" class="btn btn-primary btn-floating">
+    <!-- <button type="button" class="btn btn-primary btn-floating">
         <i class="fas fa-download"></i>
       </button> -->
   </div>
@@ -106,6 +107,7 @@ import FooterComponent from '@/components/footerComponent.vue'
 import Navbar from '@/components/navbarComponent.vue'
 import Sidebar from '@/components/sidebarComponent.vue'
 import Breadcrumb from '../components/breadcrumb.vue'
+import liveChatBtn from '@/components/liveChatBtn.vue'
 
 export default {
   name: 'berandaView',
@@ -113,7 +115,9 @@ export default {
     Navbar,
     Sidebar,
     Breadcrumb,
+    liveChatBtn,
     FooterComponent
+
   },
 }
 </script>
@@ -123,30 +127,45 @@ export default {
   background-color: #E5E5E5 !important;
   height: 100vh;
 }
-.card-body{
+
+.card-body {
   background-color: #1CAB59;
 }
+
 .text-center {
   border: 20px solid #E5E5E5 !important;
 }
+
 .box {
   height: 200px;
   background: #1CAB59 !important;
 }
+
 svg {
   width: 45px;
   height: 45px;
   margin: 0 auto;
   display: block;
 }
-img{
+
+img {
   width: 45px;
 }
+
 path {
   fill: #F4F4F4 !important;
   ;
 }
+
 .card-text {
   font-weight: 700;
+}
+
+
+.footer {
+  position: fixed !important;
+  bottom: 0;
+  left: 0;
+  width: 100%;
 }
 </style>
