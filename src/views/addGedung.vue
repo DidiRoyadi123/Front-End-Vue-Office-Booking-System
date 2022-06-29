@@ -11,7 +11,7 @@
         <p>Pembuatan Gedung Baru</p>
         <br>
           <div>
-            <b-form @submit="onSubmit" @reset="onReset" v-if="show">
+            <b-form @buat="onSubmit" @batal="onReset" v-if="show">
                 <b-row class="mt-2">
                 <b-col sm="2" class="text-end">
                   <b-form-group id="input-group-1" label="Jenis Gedung :" label-for="input-1"></b-form-group>
@@ -104,8 +104,10 @@
                 </b-row>
 
                 <br>
-              <b-button type="submit" variant="primary">Submit</b-button>
-              <b-button type="reset" variant="danger">Reset</b-button>
+                <b-col sm="6">
+                  <b-button type="buat"  variant="success">Buat</b-button>
+                  <b-button type="batal" variant="outline-success"> Batal </b-button>
+                </b-col>
             </b-form>
           </div>   
         </b-card>
@@ -195,19 +197,17 @@ p{
   color: #1CAB59;
 }
 .btn-success {
-  background-color: #1CAB59;
-  border-color: #1CAB59;
   width: 90px;
   height: 31px;
   margin: 10px !important;
   padding: 0 !important;
 }
-.btn-danger {
-  background-color: #FF3538 !important;
-  border-color: #FF3538 !important;
+
+.btn-outline-success{
   width: 90px;
   height: 31px;
   margin: 10px !important;
   padding: 0 !important;
 }
+
 </style>
