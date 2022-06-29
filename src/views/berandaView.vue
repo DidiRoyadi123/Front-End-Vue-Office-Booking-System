@@ -149,4 +149,11 @@ path {
 .card-text {
   font-weight: 700;
 }
+
+.footer {
+  position: fixed !important;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+}
 </style>
