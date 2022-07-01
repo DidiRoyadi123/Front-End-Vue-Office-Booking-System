@@ -116,6 +116,7 @@
       <br>
       <br>
       <br>
+      <LiveChatBtn />
     <FooterComponent />
   </div>
 </template>
@@ -126,14 +127,17 @@ import Navbar from '@/components/navbarComponent.vue'
 import Sidebar from '@/components/sidebarComponent.vue'
 import Breadcrumb from '../components/breadcrumb.vue'
 import FooterComponent from '@/components/footerComponent.vue'
+import LiveChatBtn from '@/components/liveChatBtn.vue'
+
 export default {
   name: 'addGedung',
   components: {
     Navbar,
     Sidebar,
-    Breadcrumb,  
-    FooterComponent
-  },
+    Breadcrumb,
+    FooterComponent,
+    LiveChatBtn
+},
   data() {
       return {
         form: {

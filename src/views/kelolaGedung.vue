@@ -21,6 +21,8 @@
       </b-table>
 
     </b-card>
+
+    <LiveChatBtn/>
     <FooterComponent />
   </div>
 </template>
@@ -31,6 +33,7 @@ import Navbar from '@/components/navbarComponent.vue'
 import Sidebar from '@/components/sidebarComponent.vue'
 import Breadcrumb from '../components/breadcrumb.vue'
 import FooterComponent from '@/components/footerComponent.vue'
+import LiveChatBtn from '@/components/liveChatBtn.vue'
 
 export default {
   name: 'kelolaGedung',
@@ -38,8 +41,9 @@ export default {
     Navbar,
     Sidebar,
     Breadcrumb,
-    FooterComponent
-  },
+    FooterComponent,
+    LiveChatBtn
+},
   data() {
     return {
       fields: ['No', 'ID_Gedung', 'Jenis_Gedung', 'Lokasi', 'Harga', 'Aksi'],

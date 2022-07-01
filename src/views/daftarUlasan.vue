@@ -14,6 +14,7 @@
         </template>
       </b-table>
     </b-card>
+    <liveChatBtn/>
     <FooterComponent />
   </div>
 </template>
@@ -24,6 +25,7 @@ import Navbar from '@/components/navbarComponent.vue';
 import Sidebar from '@/components/sidebarComponent.vue';
 import Breadcrumb from '../components/breadcrumb.vue';
 import FooterComponent from '@/components/footerComponent.vue';
+import LiveChatBtn from '@/components/liveChatBtn.vue';
 
 export default {
   name: 'daftarUlasan',
@@ -32,6 +34,7 @@ export default {
     Sidebar,
     Breadcrumb,
     FooterComponent,
+    LiveChatBtn
   },
   data() {
     return {
