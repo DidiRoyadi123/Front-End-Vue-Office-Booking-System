@@ -15,7 +15,8 @@
       >
       <template #cell(Aksi)>
          <b-button variant="success" @click="editGedung(gedung.id_gedung)">Edit</b-button>
-          <b-button variant="danger" @click="deleteGedung(gedung.id_gedung)">Hapus</b-button>
+          <b-button variant="danger" @click="showAlertConfirm">Hapus</b-button>
+          <!-- <b-button variant="danger" @click="deleteGedung(gedung.id_gedung)">Hapus</b-button> -->
       </template>
      
       </b-table>
@@ -54,8 +55,28 @@ export default {
 
       ]
     }
-  }
-
+  },
+  methods: {
+        showAlertConfirm(){
+            this.$swal({
+              title: 'Are you sure?',
+              text: "You won't be able to revert this!",
+              type: 'warning',
+              showCancelButton: true,
+              confirmButtonColor: '#3085d6',
+              cancelButtonColor: '#d33',
+              confirmButtonText: 'Yes, delete it!'
+            }).then((result) => {
+              if (result.value) {
+                this.$swal(
+                  'Deleted!',
+                  'Your file has been deleted.',
+                  'success'
+                )
+              }
+            });
+        }
+    }
 }
 </script>
 
@@ -92,5 +113,8 @@ p{
   height: 31px;
   margin: 10px !important;
   padding: 0 !important;
+}
+div.swal2-container.swal2-center.swal2-backdrop-show {
+  z-index: 5 !important;
 }
 </style>

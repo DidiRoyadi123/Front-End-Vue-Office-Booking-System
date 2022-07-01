@@ -11,7 +11,7 @@
         <p>Pembuatan Gedung Baru</p>
         <br>
           <div>
-            <b-form @buat="onSubmit" @batal="onReset" v-if="show">
+            <b-form @buat="onSubmit" @batal="onCancel" v-if="show">
                 <b-row class="mt-2">
                 <b-col sm="2" class="text-end">
                   <b-form-group id="input-group-1" label="Jenis Gedung :" label-for="input-1"></b-form-group>
@@ -159,7 +159,7 @@ export default {
         event.preventDefault()
         alert(JSON.stringify(this.form))
       },
-      onReset(event) {
+      onCancel(event) {
         event.preventDefault()
         // Reset our form values
         this.form.namaGedung = ''
