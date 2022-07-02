@@ -1,21 +1,20 @@
 <template>
-    <div class="liveChat">
+  <div class="liveChat">
+    <Navbar />
+    <Sidebar />
+    <br />
+    <br />
+    <br />
+    <Breadcrumb />
+    <b-card>
+      <b-row cols="2" align-content="start">
+        <b-col> <input v-model="search" type="text" class="form-control" placeholder="Search" aria-label="cari" aria-describedby="basic-addon1" @keyup="searchUser" /></b-col>
 
-        <Navbar />
-        <Sidebar />
-        <br />
-        <br />
-        <br />
-        <Breadcrumb />
-        <b-card>
-            <b-row cols="2" align-content="start">
-                <b-col >Column1</b-col>
-                <b-col>Column2</b-col>
-            </b-row>
-
-        </b-card>
-        <FooterComponent />
-    </div>
+        <b-col>Column2</b-col>
+      </b-row>
+    </b-card>
+    <FooterComponent />
+  </div>
 </template>
 
 <script>
@@ -23,31 +22,31 @@
 import Navbar from '@/components/navbarComponent.vue';
 import Sidebar from '@/components/sidebarComponent.vue';
 import FooterComponent from '@/components/footerComponent.vue';
-import Breadcrumb from '../components/breadcrumb.vue'
+import Breadcrumb from '../components/breadcrumb.vue';
+
 export default {
-    name: 'profilAdmin',
-    components: {
-        Navbar,
-        Sidebar,
-        FooterComponent,
-        Breadcrumb
-    },
+  name: 'profilAdmin',
+  components: {
+    Navbar,
+    Sidebar,
+    FooterComponent,
+    Breadcrumb,
+  },
 };
 </script>
 
 <style scoped>
 .card {
-    display: flexbox;
-    margin-right: 25px;
-    margin-left: 25px;
-    margin-bottom: 25px;
+  display: flexbox;
+  margin-right: 25px;
+  margin-left: 25px;
+  margin-bottom: 25px;
 }
 
-
 .footer {
-    position: fixed !important;
-    bottom: 0;
-    left: 0;
-    width: 100%;
+  position: fixed !important;
+  bottom: 0;
+  left: 0;
+  width: 100%;
 }
 </style>
