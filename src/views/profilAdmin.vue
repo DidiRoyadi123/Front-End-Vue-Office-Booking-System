@@ -112,4 +112,10 @@ button {
   color: #1cab59 !important;
   font-weight: bold;
 }
+.footer {
+  position: fixed !important;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+}
 </style>
