@@ -4,6 +4,10 @@ import './registerServiceWorker'
 import router from './router'
 import store from './store'
 import { BootstrapVue, BootstrapVueIcons ,IconsPlugin} from 'bootstrap-vue'
+import axios from 'axios'
+
+axios.defaults.withCredentials = true
+axios.defaults.baseURL = 'https://mocki.io/v1/eaad110a-08c3-477f-a37b-583945c3b475';
 
 // Import Bootstrap and BootstrapVue CSS files (order is important)
 import 'bootstrap/dist/css/bootstrap.css'

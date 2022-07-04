@@ -1,8 +1,10 @@
 <template>
     <div class="login">
+        <p>Ini Testing username & Password</p>
+        <p>Username: {{this.usernameQuery}}</p>
+        <p>Password: {{this.passwordQuery}}</p>
         <img alt="Vue logo" src="../assets/logo.png">
         <h2>Selamat Datang</h2>
-        <br>
         <br>
         <b-container fluid>
             <b-input-group>
@@ -42,11 +44,14 @@
                 </b-input-group-apend>
             </b-input-group> <br>
         </b-container>
-        <b-button class="loginBtn" @click="login" to="/beranda">login</b-button>
+        <b-button class="loginBtn" @click="login">login</b-button>
+        
     </div>
 </template>
 
 <script>
+import axios from 'axios';
+
 export default {
     name: 'loginComponent',
     data() {
@@ -58,22 +63,32 @@ export default {
             passwordTipe: 'password'
         }
     },
+    mounted() {
+     axios
+     .get("http://localhost:3000/Login")
+        .then(response => this.usernameQuery=response.data.username)
+        .catch(error => {
+        console.log(error);
+        }),
+        axios
+        .get("http://localhost:3000/Login")
+        .then(response => this.passwordQuery=response.data.password)
+        .catch(error => {
+        console.log(error);
+        })
+    },
     methods: {
         openPassword() {
             this.passwordTipe = this.passwordTipe === 'password' ? 'text' : 'password'
         },
         login() {
-            if (this.input.username != "" && this.input.password != "") {
-                if (this.input.username == this.$parent.mockAccount.username && this.input.password == this.$parent.mockAccount.password) {
-                    this.$emit("authenticated", true);
-                    this.$router.replace({ name: "secure" });
-                } else {
-                    console.log("The username and / or password is incorrect");
-                }
+            if (this.input.username === this.usernameQuery && this.input.password === this.passwordQuery) {
+                this.$router.push('/beranda')
             } else {
-                console.log("A username and password must be present");
+                alert('Username atau Password salah')
             }
         }
+       
     }
 }
 </script>
