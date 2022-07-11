@@ -7,44 +7,53 @@
     <br />
     <Breadcrumb />
     <b-card>
-    <p>Pembuatan Pesanan Baru</p>
+      <p>Pembuatan Pesanan Baru</p>
       <b-container fluid class="row mb-3">
         <b-row class="my-1">
+          <b-col sm="2" class="row mb-3">
+            <label for="input-small" class="text1"><strong>Jenis Gedung:</strong></label>
+          </b-col>
+          <b-col sm="10">
+            <select class="form-select" id="inputGroupSelect03" aria-label="Example select with button addon">
+              <option selected>Masukkan Jenis Gedung</option>
+              <option value="1">Fasilitas Ibadah</option>
+            </select>
+          </b-col>
           <b-col sm="2" class="row mb-3">
             <label for="input-small" class="text1"><strong>Nama:</strong></label>
           </b-col>
           <b-col sm="10">
-            <b-form-input id="input-small" type="password" size="sm" placeholder="Masukkan Nama Lengkap"></b-form-input>
+            <b-form-input id="input-small" type="text" size="sm" placeholder="Masukkan Nama Lengkap"></b-form-input>
           </b-col>
           <b-col sm="2" class="row mb-3">
             <label for="input-small" class="text1"><strong>No Handphone:</strong></label>
           </b-col>
           <b-col sm="10">
-            <b-form-input id="input-small" type="password" size="sm" placeholder="Masukkan No Handphone"></b-form-input>
+            <b-form-input id="input-small" type="text" size="sm" placeholder="Masukkan No Handphone"></b-form-input>
           </b-col>
           <b-col sm="2" class="row mb-3">
             <label for="input-small" class="text1"><strong>Jumlah Pemesanan:</strong></label>
           </b-col>
           <b-col sm="10">
-            <b-form-input id="input-small" type="password" size="sm" placeholder="Masukkan Jumlah Pemesanan"></b-form-input>
+            <b-form-input id="input-small" type="text" size="sm" placeholder="Masukkan Jumlah Pemesanan"></b-form-input>
           </b-col>
           <b-col sm="2" class="row mb-3">
             <label for="input-small" class="text1"><strong>Total Harga:</strong></label>
           </b-col>
           <b-col sm="10">
-            <b-form-input id="input-small" type="password" size="sm" placeholder="Masukkan Total Harga"></b-form-input>
+            <b-form-input id="input-small" type="text" size="sm" placeholder="Masukkan Total Harga"></b-form-input>
           </b-col>
           <b-col sm="2" class="row mb-3">
             <label for="input-small" class="text1"><strong>Tanggal Masuk:</strong></label>
           </b-col>
           <b-col sm="10">
-            <b-form-input id="input-small" type="password" size="sm" placeholder="Masukkan Tanggal Masuk"></b-form-input>
+            <b-form-input id="input-small" type="text" size="sm" placeholder="Masukkan Tanggal Masuk"></b-form-input>
           </b-col>
           <b-col sm="2" class="row mb-3">
             <label for="input-small" class="text1"><strong>Tanggal Keluar:</strong></label>
           </b-col>
           <b-col sm="10">
-            <b-form-input id="input-small" type="password" size="sm" placeholder="Masukkan Tanggal Keluar"></b-form-input>
+            <b-form-input id="input-small" type="text" size="sm" placeholder="Masukkan Tanggal Keluar"></b-form-input>
           </b-col>
           <b-col sm="2" class="row"> </b-col>
           <b-col sm="2">
@@ -63,33 +72,33 @@
 import Navbar from '@/components/navbarComponent.vue';
 import Sidebar from '@/components/sidebarComponent.vue';
 import FooterComponent from '@/components/footerComponent.vue';
-import Breadcrumb from '../components/breadcrumb.vue'
+import Breadcrumb from '../components/breadcrumb.vue';
 export default {
   name: 'profilAdmin',
   components: {
     Navbar,
     Sidebar,
     FooterComponent,
-    Breadcrumb
+    Breadcrumb,
   },
 };
 </script>
 
 <style scoped>
-p{
+p {
   font-family: 'Poppins';
   font-style: normal;
   font-size: 19px;
-  font-weight:600;
+  font-weight: 600;
   line-height: 33px;
   display: flex;
-  color: #1CAB59;
+  color: #1cab59;
 }
-.card{
- margin-right: 25px;
- margin-left: 25px;
- margin-bottom: 40px;
- margin-top: 0px;
+.card {
+  margin-right: 25px;
+  margin-left: 25px;
+  margin-bottom: 40px;
+  margin-top: 0px;
 }
 .Admin {
   background-color: #e5e5e5 !important;
