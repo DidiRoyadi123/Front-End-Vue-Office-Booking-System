@@ -23,7 +23,7 @@ const routes = [
   },
   {
     path: '/beranda',
-    name: '',
+    name: 'berandaView',
     component: berandaView
   },
   {
