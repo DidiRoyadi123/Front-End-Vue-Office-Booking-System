@@ -10,7 +10,7 @@
       <p>Daftar Ulasan</p>
       <b-table striped hover :items="items" :fields="fields">
         <template #cell(Aksi)>
-          <b-button variant="danger" @click="deleteGedung(gedung.id_gedung)">Hapus</b-button>
+          <b-button variant="danger" @click="deleteGedung(gedung.id_gedung)">Sembunyikan</b-button>
         </template>
       </b-table>
     </b-card>
