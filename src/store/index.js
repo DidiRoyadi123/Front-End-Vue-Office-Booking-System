@@ -38,7 +38,7 @@ export default new Vuex.Store({
       console.log(response.data.status)
       store.commit('getStatusLogin', response.data.status);
         if (response.data.status==true) {
-            router.push({name: 'berandaView'});
+            router.push({path: '/beranda'});
         } 
     })
     .catch(error => {
