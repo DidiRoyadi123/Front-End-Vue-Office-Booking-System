@@ -22,12 +22,7 @@ const routes = [
   },
   {
     path: '/beranda',
-    name: '',
-    component: berandaView
-  },
-  {
-    path: '/beranda',
-    name: '',
+    name: 'berandaView',
     component: berandaView
   },
   {

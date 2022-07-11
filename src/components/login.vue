@@ -16,7 +16,7 @@
                             fill="#A8A8A8" />
                     </svg>
                 </b-input-group-prepend>
-                <b-form-input id="input-small" size="sm" placeholder="email" v-model="input.email"></b-form-input>
+                <b-form-input id="input-small" size="sm" placeholder="email" v-model="email"></b-form-input>
             </b-input-group>
             <b-input-group>
                 <b-input-group-prepend>
@@ -28,9 +28,9 @@
                     </svg>
                 </b-input-group-prepend>
                 <b-form-input id="input-small" size="xs" :type="passwordTipe" placeholder="Password"
-                    v-model="input.password">
+                    v-model="password">
                 </b-form-input>
-                <b-input-group-apend v-if="input.password">
+                <b-input-group-apend v-if="password">
                     <b-button class="showPasswordBtn" variant="outline" @click="openPassword">
                         <svg width="26" height="24" viewBox="0 0 26 24" fill="none" xmlns="http://www.w3.org/2000/svg">
                             <path fill-rule="evenodd" clip-rule="evenodd"
@@ -41,85 +41,72 @@
                 </b-input-group-apend>
             </b-input-group> <br>
         </b-container>
-        <b-button class="loginBtn" @click="login">login</b-button>
+        <b-button class="loginBtn" @click.prevent="loginAdmin()">login</b-button>
 
     </div>
 </template>
 
 <script>
-import axios from 'axios';
+import { mapActions } from 'vuex';
 
 export default {
     name: 'loginComponent',
     data() {
         return {
-            input: {
-                email: '',
-                password: ''
-            },
+            
             passwordTipe: 'password',
         }
     },
+    computed:{
+        email:{
+            get(){
+                return this.$store.state.email;
+            },
+            set(value){
+                 this.$store.commit('updateEmail', value)
+            }
+        },
+        password:{
+            get(){
+                return this.$store.state.password;
+            },
+            set(value){
+                 this.$store.commit('updatePassword', value)
+            }
+        }
+    },
     mounted() {
-        //  axios
-        //  .get("http://localhost:3000/Login")
-        //     .then(response => this.usernameQuery=response.data.username)
-        //     .catch(error => {
-        //     console.log(error);
-        //     }),
-        //     axios
-        //     .get("http://localhost:3000/Login")
-        //     .then(response => this.passwordQuery=response.data.password)
-        //     .catch(error => {
-        //     console.log(error);
-        //     })
-        // },
-        axios
-        //     .post("https://officebooking-app-295f2.ondigitalocean.app/login", this.input.email, this.input.password)
-        //     .then(response => this.statusQuery = response.status)
-        //     .catch(error => {
-        //         console.log(error);
-        //     })
-        // // axios
-        // .post("https://officebooking-app-295f2.ondigitalocean.app/login")
-        // .then(response => this.passwordQuery=response.password)
-        // .catch(error => {
-        // console.log(error);
-        // })
-        // axios
-        // .post("https://officebooking-app-295f2.ondigitalocean.app/login")
-        // .then(response => this.tokenQuery=response.data.token)
-        // .catch(error => {
-        // console.log(error);
-        // })
+        
+        // this.$store.dispatch('loginAdmin') 
     },
 
     methods: {
         openPassword() {
             this.passwordTipe = this.passwordTipe === 'password' ? 'text' : 'password'
         },
+        ...mapActions(['loginAdmin']),
         // login() {
-        //     if (this.input.username === this.usernameQuery && this.input.password === this.passwordQuery) {
+        //     if (this.$store.state.status===true) {
         //         this.$router.push('/beranda')
         //     } else {
         //         alert('Username atau Password salah')
         //     }
         // }
 
-        login() {
-            axios
-                .post("https://officebooking-app-295f2.ondigitalocean.app/login", this.input.email, this.input.password)
-                .then(response => this.statusQuery = response.status)
-                .catch(error => {
-                    console.log(error)
-                    this.errored = true
-                })
-            if (this.statusQuery === true) {
-                this.$router.push('/beranda')
-            } else {
-                alert('Username atau Password salah')
-            }
-        }
+        // login() {
+        //     axios
+        //         .post("https://officebooking-app-295f2.ondigitalocean.app/login", this.input.email, this.input.password)
+        //         .then(response => this.statusQuery = response.status)
+        //         .catch(error => {
+        //             console.log(error)
+        //             this.errored = true
+        //         })
+        //     if (this.statusQuery === true) {
+        //         this.$router.push('/beranda')
+        //     } else {
+        //         alert('Username atau Password salah')
+        //     }
+        // }
     }
 }
 </script>
