@@ -1,8 +1,5 @@
 <template>
     <div class="login">
-        <p>Ini Testing username & Password</p>
-        <p>Username: {{this.usernameQuery}}</p>
-        <p>Password: {{this.passwordQuery}}</p>
         <img alt="Vue logo" src="../assets/logo.png">
         <h2>Selamat Datang</h2>
         <br>
@@ -19,7 +16,7 @@
                             fill="#A8A8A8" />
                     </svg>
                 </b-input-group-prepend>
-                <b-form-input id="input-small" size="sm" placeholder="username" v-model="input.username"></b-form-input>
+                <b-form-input id="input-small" size="sm" placeholder="email" v-model="input.email"></b-form-input>
             </b-input-group>
             <b-input-group>
                 <b-input-group-prepend>
@@ -45,7 +42,7 @@
             </b-input-group> <br>
         </b-container>
         <b-button class="loginBtn" @click="login">login</b-button>
-        
+
     </div>
 </template>
 
@@ -57,38 +54,72 @@ export default {
     data() {
         return {
             input: {
-                username: '',
+                email: '',
                 password: ''
             },
-            passwordTipe: 'password'
+            passwordTipe: 'password',
         }
     },
     mounted() {
-     axios
-     .get("http://localhost:3000/Login")
-        .then(response => this.usernameQuery=response.data.username)
-        .catch(error => {
-        console.log(error);
-        }),
+        //  axios
+        //  .get("http://localhost:3000/Login")
+        //     .then(response => this.usernameQuery=response.data.username)
+        //     .catch(error => {
+        //     console.log(error);
+        //     }),
+        //     axios
+        //     .get("http://localhost:3000/Login")
+        //     .then(response => this.passwordQuery=response.data.password)
+        //     .catch(error => {
+        //     console.log(error);
+        //     })
+        // },
         axios
-        .get("http://localhost:3000/Login")
-        .then(response => this.passwordQuery=response.data.password)
-        .catch(error => {
-        console.log(error);
-        })
+        //     .post("https://officebooking-app-295f2.ondigitalocean.app/login", this.input.email, this.input.password)
+        //     .then(response => this.statusQuery = response.status)
+        //     .catch(error => {
+        //         console.log(error);
+        //     })
+        // // axios
+        // .post("https://officebooking-app-295f2.ondigitalocean.app/login")
+        // .then(response => this.passwordQuery=response.password)
+        // .catch(error => {
+        // console.log(error);
+        // })
+        // axios
+        // .post("https://officebooking-app-295f2.ondigitalocean.app/login")
+        // .then(response => this.tokenQuery=response.data.token)
+        // .catch(error => {
+        // console.log(error);
+        // })
     },
+
     methods: {
         openPassword() {
             this.passwordTipe = this.passwordTipe === 'password' ? 'text' : 'password'
         },
+        // login() {
+        //     if (this.input.username === this.usernameQuery && this.input.password === this.passwordQuery) {
+        //         this.$router.push('/beranda')
+        //     } else {
+        //         alert('Username atau Password salah')
+        //     }
+        // }
+
         login() {
-            if (this.input.username === this.usernameQuery && this.input.password === this.passwordQuery) {
+            axios
+                .post("https://officebooking-app-295f2.ondigitalocean.app/login", this.input.email, this.input.password)
+                .then(response => this.statusQuery = response.status)
+                .catch(error => {
+                    console.log(error)
+                    this.errored = true
+                })
+            if (this.statusQuery === true) {
                 this.$router.push('/beranda')
             } else {
                 alert('Username atau Password salah')
             }
         }
-       
     }
 }
 </script>
@@ -99,6 +130,7 @@ body {
     height: 10rem;
     z-index: 1;
 }
+
 img {
     margin-bottom: 5%;
 }
