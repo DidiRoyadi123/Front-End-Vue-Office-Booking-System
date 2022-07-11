@@ -110,12 +110,19 @@
               </svg>
               <span class="ms-3">Daftar Pengguna</span>
             </b-list-group-item>
-            <b-list-group-item
-              to="/pemesanan"
-              variant="light"
-              class="text-start"
-            >
-              <svg
+            <b-list-group-item class="w-100">
+              <b-button
+                block
+                v-b-toggle.accordion-1
+                variant="light"
+                class="accordion-button"
+                type="button"
+                data-bs-toggle="collapse"
+                data-bs-target="#panelsStayOpen-collapseOne"
+                aria-expanded="true"
+                aria-controls="panelsStayOpen-collapseOne"
+              >
+                <svg
                 xmlns="http://www.w3.org/2000/svg"
                 width="29"
                 height="29"
@@ -131,6 +138,28 @@
                 />
               </svg>
               <span class="ms-3">Pemesanan</span>
+              </b-button>
+              <b-collapse
+                id="accordion-1"
+                visible
+                accordion="my-accordion"
+                role="tabpanel"
+              >
+                <b-list-group-item
+                  to="/addPesanan"
+                  variant="light"
+                  class="border-0 text-start dropdown-item mb-1"
+                >
+                  <span class="text-nowrap">Tambah Pesanan</span>
+                </b-list-group-item>
+                <b-list-group-item
+                  to="/kelolaPesanan"
+                  variant="light"
+                  class="border-0 text-start dropdown-item mb-1"
+                >
+                  <span class="text-nowrap">Kelola Pesanan</span>
+                </b-list-group-item>
+              </b-collapse>
             </b-list-group-item>
             <b-list-group-item
               to="/daftarUlasan"
@@ -180,12 +209,6 @@
               </svg>
               <span class="ms-3">Daftar Ulasan</span>
             </b-list-group-item>
-
-            <!-- <b-button block v-b-toggle.accordion-1 variant="light" class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#panelsStayOpen-collapseOne" aria-expanded="true" aria-controls="panelsStayOpen-collapseOne">Promosi</b-button> 
-                  <b-collapse id="accordion-1" visible accordion="my-accordion" role="tabpanel">
-                              <b-list-group-item to="/addPromosi" variant="light">Tambah Promosi</b-list-group-item>
-                              <b-list-group-item to="/kelolaPromosi" variant="light">Kelola Promosi</b-list-group-item>
-                  </b-collapse> -->
           </b-list-group>
         </nav>
       </div>
