@@ -9,41 +9,39 @@
     <b-card>
       <p>Pembuatan Pesanan Baru</p>
       <b-container fluid class="row mb-3">
-        <form class="row">
+        <form class="row" @submit.prevent="simpan">
           <b-col sm="2" class="row mb-3">
             <label for="input-small" class="text1"><strong>Jenis Gedung:</strong></label>
           </b-col>
           <b-col sm="10">
-            <select class="form-select" id="inputGroupSelect03" aria-label="Example select with button addon">
+            <select class="form-select" id="inputGroupSelect03" aria-label="Example select with button addon" placeholder="Masukkan Jenis gedung">
               <option selected>Masukkan Jenis Gedung</option>
-              <option value="1">Auditorium</option>
-              <option value="2">Hotel meeting Room</option>
-              <option value="1">Gedung Serba Guna</option>
+              <option value="1" v-for="(nearby, id) in nearby" :key="id">{{ nearby.namefacilities }}</option>
             </select>
           </b-col>
           <b-col sm="2" class="row mb-3">
             <label for="input-small" class="text1"><strong>Nama:</strong></label>
           </b-col>
           <b-col sm="10">
-            <b-form-input v-model="form.nama" id="input-small" type="text" size="sm" placeholder="Masukkan Nama Lengkap"></b-form-input>
+            <b-form-input v-model="nearby.nama" id="input-small" type="text" size="sm" placeholder="Masukkan Nama Lengkap"></b-form-input>
           </b-col>
           <b-col sm="2" class="row mb-3">
             <label for="input-small" class="text1"><strong>No Handphone:</strong></label>
           </b-col>
           <b-col sm="10">
-            <b-form-input v-model="form.no_hp" id="input-small" type="text" size="sm" placeholder="Masukkan No Handphone"></b-form-input>
+            <b-form-input v-model="nearby.no_hp" id="input-small" type="text" size="sm" placeholder="Masukkan No Handphone"></b-form-input>
           </b-col>
           <b-col sm="2" class="row mb-3">
             <label for="input-small" class="text1"><strong>Jumlah Pemesanan:</strong></label>
           </b-col>
           <b-col sm="10">
-            <b-form-input v-model="form.jumlah_pesanan" id="input-small" type="text" size="sm" placeholder="Masukkan Jumlah Pemesanan"></b-form-input>
+            <b-form-input v-model="nearby.jumlah_pesanan" id="input-small" type="text" size="sm" placeholder="Masukkan Jumlah Pemesanan"></b-form-input>
           </b-col>
           <b-col sm="2" class="row mb-3">
             <label for="input-small" class="text1"><strong>Total Harga:</strong></label>
           </b-col>
           <b-col sm="10">
-            <b-form-input v-model="form.total_harga" id="input-small" type="text" size="sm" placeholder="Masukkan Total Harga"></b-form-input>
+            <b-form-input v-model="nearby.total_harga" id="input-small" type="text" size="sm" placeholder="Masukkan Total Harga"></b-form-input>
           </b-col>
           <b-col sm="2" class="row mb-3">
             <label for="input-small" class="text1"><strong>Tanggal Masuk:</strong></label>
@@ -59,7 +57,7 @@
           </b-col>
           <b-col sm="2" class="row"> </b-col>
           <b-col sm="2">
-            <button class="btn btn-success float-right mt-3" type="submit" @click="simpan">Buat</button>
+            <button class="btn btn-success float-right mt-3" type="submit">Buat</button>
             <button class="btn btn-success float-right mt-3">Batal</button>
           </b-col>
         </form>
@@ -75,7 +73,10 @@ import Navbar from '@/components/navbarComponent.vue';
 import Sidebar from '@/components/sidebarComponent.vue';
 import FooterComponent from '@/components/footerComponent.vue';
 import Breadcrumb from '../components/breadcrumb.vue';
+import Vue from 'vue';
 import axios from 'axios';
+import VueAxios from 'vue-axios';
+Vue.use(VueAxios, axios);
 
 export default {
   name: 'profilAdmin',
@@ -87,24 +88,39 @@ export default {
   },
   data() {
     return {
-      form: {
-        gedung: [],
-        nama: '',
-        no_hp: '',
-        jumlah_pesanan: '',
-        total_harga: '',
+      nearby: {
+        //gedung: [],
+        // nama: '',
+        // no_hp: '',
+        // jumlah_pesanan: '',
+        //total_harga: '',
       },
     };
   },
+  mounted() {
+    axios
+      .get('https://officebooking-app-pn6n3.ondigitalocean.app/nearby')
+      .then((response) => {
+        this.nearby = response.data.data;
+        console.log(this.nearby);
+      })
+      .catch((error) => {
+        console.log(error);
+      });
+  },
 
   methods: {
-    simpan() {
-      axios
-        .post('https://officebooking-app-pn6n3.ondigitalocean.app/nearby')
-        .then(() => {
-          this.$router.push({ path: '/kelolaUlasan' });
-        })
-        .catch((error) => console.log(error));
+    async simpan() {
+      try {
+        const response = await axios.post('https://officebooking-app-pn6n3.ondigitalocean.app/nearby', this.nearby);
+        this.nearby = response.data;
+        this.nama = '';
+        this.no_hp = '';
+        this.jumlah_pesanan = '';
+        this.total_harga = '';
+      } catch (e) {
+        console.log(e);
+      }
     },
   },
 };
