@@ -9,39 +9,41 @@
     <b-card>
       <p>Pembuatan Pesanan Baru</p>
       <b-container fluid class="row mb-3">
-        <b-row class="my-1">
+        <form class="row">
           <b-col sm="2" class="row mb-3">
             <label for="input-small" class="text1"><strong>Jenis Gedung:</strong></label>
           </b-col>
           <b-col sm="10">
             <select class="form-select" id="inputGroupSelect03" aria-label="Example select with button addon">
               <option selected>Masukkan Jenis Gedung</option>
-              <option value="1">Fasilitas Ibadah</option>
+              <option value="1">Auditorium</option>
+              <option value="2">Hotel meeting Room</option>
+              <option value="1">Gedung Serba Guna</option>
             </select>
           </b-col>
           <b-col sm="2" class="row mb-3">
             <label for="input-small" class="text1"><strong>Nama:</strong></label>
           </b-col>
           <b-col sm="10">
-            <b-form-input id="input-small" type="text" size="sm" placeholder="Masukkan Nama Lengkap"></b-form-input>
+            <b-form-input v-model="form.nama" id="input-small" type="text" size="sm" placeholder="Masukkan Nama Lengkap"></b-form-input>
           </b-col>
           <b-col sm="2" class="row mb-3">
             <label for="input-small" class="text1"><strong>No Handphone:</strong></label>
           </b-col>
           <b-col sm="10">
-            <b-form-input id="input-small" type="text" size="sm" placeholder="Masukkan No Handphone"></b-form-input>
+            <b-form-input v-model="form.no_hp" id="input-small" type="text" size="sm" placeholder="Masukkan No Handphone"></b-form-input>
           </b-col>
           <b-col sm="2" class="row mb-3">
             <label for="input-small" class="text1"><strong>Jumlah Pemesanan:</strong></label>
           </b-col>
           <b-col sm="10">
-            <b-form-input id="input-small" type="text" size="sm" placeholder="Masukkan Jumlah Pemesanan"></b-form-input>
+            <b-form-input v-model="form.jumlah_pesanan" id="input-small" type="text" size="sm" placeholder="Masukkan Jumlah Pemesanan"></b-form-input>
           </b-col>
           <b-col sm="2" class="row mb-3">
             <label for="input-small" class="text1"><strong>Total Harga:</strong></label>
           </b-col>
           <b-col sm="10">
-            <b-form-input id="input-small" type="text" size="sm" placeholder="Masukkan Total Harga"></b-form-input>
+            <b-form-input v-model="form.total_harga" id="input-small" type="text" size="sm" placeholder="Masukkan Total Harga"></b-form-input>
           </b-col>
           <b-col sm="2" class="row mb-3">
             <label for="input-small" class="text1"><strong>Tanggal Masuk:</strong></label>
@@ -57,10 +59,10 @@
           </b-col>
           <b-col sm="2" class="row"> </b-col>
           <b-col sm="2">
-            <button class="btn btn-success float-right mt-3">Ubah</button>
+            <button class="btn btn-success float-right mt-3" type="submit" @click="simpan">Buat</button>
             <button class="btn btn-success float-right mt-3">Batal</button>
           </b-col>
-        </b-row>
+        </form>
       </b-container>
     </b-card>
     <FooterComponent />
@@ -73,6 +75,8 @@ import Navbar from '@/components/navbarComponent.vue';
 import Sidebar from '@/components/sidebarComponent.vue';
 import FooterComponent from '@/components/footerComponent.vue';
 import Breadcrumb from '../components/breadcrumb.vue';
+import axios from 'axios';
+
 export default {
   name: 'profilAdmin',
   components: {
@@ -80,6 +84,28 @@ export default {
     Sidebar,
     FooterComponent,
     Breadcrumb,
+  },
+  data() {
+    return {
+      form: {
+        gedung: [],
+        nama: '',
+        no_hp: '',
+        jumlah_pesanan: '',
+        total_harga: '',
+      },
+    };
+  },
+
+  methods: {
+    simpan() {
+      axios
+        .post('https://officebooking-app-pn6n3.ondigitalocean.app/nearby')
+        .then(() => {
+          this.$router.push({ path: '/kelolaUlasan' });
+        })
+        .catch((error) => console.log(error));
+    },
   },
 };
 </script>
