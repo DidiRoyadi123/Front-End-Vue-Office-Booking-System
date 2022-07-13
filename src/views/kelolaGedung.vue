@@ -5,8 +5,55 @@
     <br>
     <br>
     <br>
-    <h1>Halaman Kelola Gedung</h1>
-    <Footer />
+    <Breadcrumb />
+    <b-card>
+      <p>Kelola Daftar Gedung</p>
+      <!-- <b-table 
+        striped hover 
+        :items="items" 
+        :fields="fields"
+      >
+      <template #cell(Aksi)>
+         <b-button variant="success" @click="editGedung(gedung.id_gedung)">Edit</b-button>
+          <b-button variant="danger" @click="deleteGedung(gedung.id_gedung)">Hapus</b-button>
+      </template>
+     
+      </b-table> -->
+      <b-table-simple striped hover>
+        <b-thead>
+          <b-tr>
+            <b-th>No</b-th>
+            <b-th>ID Gedung</b-th>
+            <b-th>Jenis Gedung</b-th>
+            <b-th>Lokasi</b-th>
+            <b-th>Harga</b-th>
+            <b-th>Aksi</b-th>
+          </b-tr>
+        </b-thead>
+        <b-tbody>
+          <b-tr v-for="(gedung, id) in gedungs" :key="id">
+            <b-td>ini nomor </b-td>
+            <b-td>{{ gedung.id }}</b-td>
+            <b-td>{{ gedung.jenis_gedung }}</b-td>
+            <b-td>{{ gedung.location }}</b-td>
+            <b-td>{{ gedung.price }}</b-td>
+            <b-td>
+              <b-button variant="success" @click="editGedung(gedung.id_gedung)">Edit</b-button>
+              <b-button v-b-modal.hapus variant="danger">Hapus</b-button>
+              <b-modal id="hapus" centered busy>
+                <p class="my-4">Apakah Anda Yakin ?</p>
+                <b-button variant="danger" @click="deleteGedung(gedung.id)">Ya</b-button>
+                <b-button variant="success" @click="$bModal.hide('hapus')">Tidak</b-button>
+              </b-modal>
+            </b-td>
+          </b-tr>
+        </b-tbody>
+      </b-table-simple>
+
+    </b-card>
+
+    <LiveChatBtn />
+    <FooterComponent />
   </div>
 </template>
 
@@ -14,15 +61,105 @@
 // @ is an alias to /src
 import Navbar from '@/components/navbarComponent.vue'
 import Sidebar from '@/components/sidebarComponent.vue'
-import Footer from '@/components/footerComponent.vue'
+import Breadcrumb from '../components/breadcrumb.vue'
+import FooterComponent from '@/components/footerComponent.vue'
+import LiveChatBtn from '@/components/liveChatBtn.vue'
+import axios from 'axios'
 
 export default {
   name: 'kelolaGedung',
   components: {
     Navbar,
     Sidebar,
-    Footer
+    Breadcrumb,
+    FooterComponent,
+    LiveChatBtn
   },
+  data() {
+    return {
+      //   fields: ['No', 'ID_Gedung', 'Jenis_Gedung', 'Lokasi', 'Harga', 'Aksi'],
+      //   items: [
+      //     { No: 1, ID_Gedung: '002',Jenis_Gedung: 'Low-rise', Lokasi: 'Macdonald', Harga: 'Rp. 100.000/Day' },
+      //     { No: 2, ID_Gedung: '003',Jenis_Gedung: 'Mid-rise', Lokasi: 'Shaw ', Harga: 'Rp. 100.000/Day' },
+      //     { No: 3, ID_Gedung: '003',Jenis_Gedung: 'Mid-rise', Lokasi: 'Shaw ', Harga: 'Rp. 100.000/Day' },
+      //     { No: 4, ID_Gedung: '003',Jenis_Gedung: 'Mid-rise', Lokasi: 'Shaw ', Harga: 'Rp. 100.000/Day' },
+      //     { No: 5, ID_Gedung: '004',Jenis_Gedung: 'High-rise', Lokasi: 'Wilson', Harga: 'Rp. 100.000/Day' },
+      //     { No: 6, ID_Gedung: '005',Jenis_Gedung: 'Kantor dengan ruang ritel', Lokasi: 'Carney', Harga: 'Rp. 100.000/Day' },
+      //     { No: 7, ID_Gedung: '005',Jenis_Gedung: 'Low-rise, multitenant', Lokasi: 'Carney', Harga: 'Rp. 100.000/Day' },
+      //   ]
+
+      gedungs: []
+    }
+
+
+  },
+  mounted() {
+    axios
+      .get('https://officebooking-app-pn6n3.ondigitalocean.app/admin/gedungs')
+      .then(response => {
+        this.gedungs = response.data.data
+        console.log(this.gedungs)
+      })
+      .catch(error => {
+        console.log(error)
+      })
+  },
+  methods: {
+
+    editGedung(id) {
+      this.$router.push('/editGedung/' + id)
+    },
+    deleteGedung(id) {
+      axios.delete('api/gedung/' + id)
+        .then(response => {
+          this.getGedung(response)
+        })
+        .catch(error => {
+          console.log(error)
+        })
+    }
+
+  }
 
 }
 </script>
+
+<style scoped>
+.list {
+  background-color: #e5e5e5;
+}
+
+.card {
+  margin-right: 25px;
+  margin-left: 25px;
+  margin-bottom: 25px;
+}
+
+p {
+  font-family: 'Poppins';
+  font-style: normal;
+  font-size: 19px;
+  font-weight: 600;
+  line-height: 33px;
+  display: flex;
+  color: #1CAB59;
+}
+
+.btn-success {
+  background-color: #1CAB59;
+  border-color: #1CAB59;
+  width: 90px;
+  height: 31px;
+  margin: 10px !important;
+  padding: 0 !important;
+}
+
+.btn-danger {
+  background-color: #FF3538 !important;
+  border-color: #FF3538 !important;
+  width: 90px;
+  height: 31px;
+  margin: 10px !important;
+  padding: 0 !important;
+}
+</style>

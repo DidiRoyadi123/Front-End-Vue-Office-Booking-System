@@ -6,9 +6,12 @@ import addGedung from '../views/addGedung.vue'
 import kelolaGedung from '../views/kelolaGedung.vue'
 import daftarPengguna from '../views/daftarPengguna.vue'
 import daftarUlasan from '../views/daftarUlasan.vue'
-import pemesanan from '../views/pemesanan.vue'
+import addPesanan from '../views/addPesanan.vue'
+import kelolaPesanan from '../views/kelolaPesanan.vue'
 import addPromosi from '../views/addPromosi.vue'
 import kelolaPromosi from '../views/kelolaPromosi.vue'
+import profilAdmin from '../views/profilAdmin.vue';
+import liveChatView from '../views/liveChatView.vue';
 
 Vue.use(VueRouter);
 
@@ -20,43 +23,58 @@ const routes = [
   },
   {
     path: '/beranda',
-    name: 'beranda',
+    name: '',
     component: berandaView
   },
   {
     path: '/addGedung',
-    name: 'addGedung',
+    name: 'Pembuatan Daftar Gedung',
     component: addGedung
   },
   {
     path: '/kelolaGedung',
-    name: 'kelolaGedung',
+    name: 'Kelola Gedung',
     component: kelolaGedung
   },
   {
     path: '/daftarPengguna',
-    name: 'daftarPengguna',
+    name: 'Daftar Pengguna',
     component: daftarPengguna
   },
   {
     path: '/daftarUlasan',
-    name: 'daftarUlasan',
+    name: 'Daftar Ulasan',
     component: daftarUlasan
   },
   {
-    path: '/pemesanan',
-    name: 'pemesanan',
-    component: pemesanan
+    path: '/addPesanan',
+    name: 'Pembuatan Daftar Pesanan',
+    component: addPesanan
+  },
+  {
+    path: '/kelolaPesanan',
+    name: 'Kelola Pesanan',
+    component: kelolaPesanan
   },
   {
     path: '/addPromosi',
-    name: 'addPromosi',
+    name: 'Tambah Promosi',
     component: addPromosi
   },
   {
     path: '/kelolaPromosi',
-    name: 'kelolaPromosi',
+    name: 'Kelola Promosi',
     component: kelolaPromosi
+  },
+  {
+    path: '/profilAdmin',
+    name: 'Profil Admin',
+    component: profilAdmin,
+  },
+  {
+    path: '/liveChatView',
+    name: 'Live Chat view',
+    component: liveChatView,
   }
 ]
 

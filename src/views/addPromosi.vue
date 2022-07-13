@@ -5,8 +5,10 @@
     <br>
     <br>
     <br>
+    <Breadcrumb />
     <h1>Halaman Tambah Promosi</h1>
-    <Footer />
+    <liveChatBtn/>
+    <FooterComponent />
   </div>
 </template>
 
@@ -14,15 +16,19 @@
 // @ is an alias to /src
 import Navbar from '@/components/navbarComponent.vue'
 import Sidebar from '@/components/sidebarComponent.vue'
-import Footer from '@/components/footerComponent.vue'
+import Breadcrumb from '../components/breadcrumb.vue'
+import FooterComponent from '@/components/footerComponent.vue'
+import liveChatBtn from '@/components/liveChatBtn.vue'
 
 export default {
   name: 'addPromosi',
   components: {
     Navbar,
     Sidebar,
-    Footer
-  },
+    Breadcrumb,
+    FooterComponent,
+    liveChatBtn
+},
 
 }
 </script>

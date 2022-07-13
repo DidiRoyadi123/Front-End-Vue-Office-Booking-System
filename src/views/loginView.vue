@@ -1,8 +1,9 @@
 <template>
   <div class="login">
     <Login />
+    <!-- <div class="whiteSpace"></div> -->
     <div class="footer" >
-      <Footer/>
+      <FooterComponent/>
     </div>
   </div>
 </template>
@@ -10,18 +11,25 @@
 <script>
 // @ is an alias to /src
 import Login from '@/components/login.vue';
-import Footer from '@/components/footerComponent.vue';
+import FooterComponent from '@/components/footerComponent.vue';
 
 export default {
   name: 'loginView',
   components: {
     Login,
-    Footer,
-  },
+    FooterComponent
+},
 };
 </script>
 
-<style>
+<style scoped>
+body{
+  background-color: #E5E5E5 !important;
+}
+/* .whiteSpace{
+  display: block;
+  padding-bottom:25%;
+} */
 .footer {
   position: fixed;
   bottom: 0px;

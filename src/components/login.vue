@@ -2,6 +2,7 @@
     <div class="login">
         <img alt="Vue logo" src="../assets/logo.png">
         <h2>Selamat Datang</h2>
+        <br>
         <b-container fluid>
             <b-input-group>
                 <b-input-group-prepend>
@@ -15,7 +16,7 @@
                             fill="#A8A8A8" />
                     </svg>
                 </b-input-group-prepend>
-                <b-form-input id="input-small" size="sm" placeholder="username" v-model="input.username"></b-form-input>
+                <b-form-input id="input-small" size="sm" placeholder="email" v-model="email"></b-form-input>
             </b-input-group>
             <b-input-group>
                 <b-input-group-prepend>
@@ -27,9 +28,9 @@
                     </svg>
                 </b-input-group-prepend>
                 <b-form-input id="input-small" size="xs" :type="passwordTipe" placeholder="Password"
-                    v-model="input.password">
+                    v-model="password">
                 </b-form-input>
-                <b-input-group-apend v-if="input.password">
+                <b-input-group-apend v-if="password">
                     <b-button class="showPasswordBtn" variant="outline" @click="openPassword">
                         <svg width="26" height="24" viewBox="0 0 26 24" fill="none" xmlns="http://www.w3.org/2000/svg">
                             <path fill-rule="evenodd" clip-rule="evenodd"
@@ -40,47 +41,83 @@
                 </b-input-group-apend>
             </b-input-group> <br>
         </b-container>
-        <b-button class="loginBtn" @click="login" to="/beranda">login</b-button>
+        <b-button class="loginBtn" @click.prevent="loginAdmin()">login</b-button>
+
     </div>
 </template>
 
 <script>
+import { mapActions } from 'vuex';
+
 export default {
     name: 'loginComponent',
     data() {
         return {
-            input: {
-                username: '',
-                password: ''
-            },
-            passwordTipe: 'password'
+            
+            passwordTipe: 'password',
         }
     },
+    computed:{
+        email:{
+            get(){
+                return this.$store.state.email;
+            },
+            set(value){
+                 this.$store.commit('updateEmail', value)
+            }
+        },
+        password:{
+            get(){
+                return this.$store.state.password;
+            },
+            set(value){
+                 this.$store.commit('updatePassword', value)
+            }
+        }
+    },
+    mounted() {
+        
+        // this.$store.dispatch('loginAdmin') 
+    },
+
     methods: {
         openPassword() {
             this.passwordTipe = this.passwordTipe === 'password' ? 'text' : 'password'
         },
-        login() {
-            if (this.input.username != "" && this.input.password != "") {
-                if (this.input.username == this.$parent.mockAccount.username && this.input.password == this.$parent.mockAccount.password) {
-                    this.$emit("authenticated", true);
-                    this.$router.replace({ name: "secure" });
-                } else {
-                    console.log("The username and / or password is incorrect");
-                }
-            } else {
-                console.log("A username and password must be present");
-            }
-        }
+        ...mapActions(['loginAdmin']),
+        // login() {
+        //     if (this.$store.state.status===true) {
+        //         this.$router.push('/beranda')
+        //     } else {
+        //         alert('Username atau Password salah')
+        //     }
+        // }
+
+        // login() {
+        //     axios
+        //         .post("https://officebooking-app-295f2.ondigitalocean.app/login", this.input.email, this.input.password)
+        //         .then(response => this.statusQuery = response.status)
+        //         .catch(error => {
+        //             console.log(error)
+        //             this.errored = true
+        //         })
+        //     if (this.statusQuery === true) {
+        //         this.$router.push('/beranda')
+        //     } else {
+        //         alert('Username atau Password salah')
+        //     }
+        // }
     }
 }
-
 </script>
 
 <style scoped>
 body {
     background-color: #f5f5f5 !important;
+    height: 10rem;
+    z-index: 1;
 }
+
 img {
     margin-bottom: 5%;
 }
