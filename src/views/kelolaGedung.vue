@@ -75,9 +75,9 @@
               </b-modal>
 
 
-              <b-button id="show-btn" @click="$bvModal.show('modalDelete'),id" variant="danger">Hapus</b-button>
+              <b-button id="show-btn" @click="$bvModal.show('modalDelete' + gedung.id),id" variant="danger">Hapus</b-button>
               <!-- Modal delete -->
-              <b-modal hide-footer hide-header centered id="modalDelete">
+              <b-modal hide-footer hide-header centered :id="'modalDelete' + gedung.id" >
                 <div class="d-block text-center">
                   <svg width="76" height="65" viewBox="0 0 76 65" fill="none" xmlns="http://www.w3.org/2000/svg">
                     <path
@@ -90,8 +90,8 @@
                   <p>ini geung.id :</p> {{gedung.id}}
                 </div>
                 <div class="col-12 text-center">
-                  <b-button class="mt-3" variant="success" @click="$bvModal.hide('modalDelete')">Batal</b-button>
-                  <b-button class="mt-3" variant="danger" @click="deleteGedung(id), $bvModal.hide('modalDelete')">
+                  <b-button class="mt-3" variant="success" @click="$bvModal.hide('modalDelete' + gedung.id)">Batal</b-button>
+                  <b-button class="mt-3" variant="danger" @click="deleteGedung(gedung.id), $bvModal.hide('modalDelete'+ gedung.id)">
                     Ok
                   </b-button>
                 </div>
