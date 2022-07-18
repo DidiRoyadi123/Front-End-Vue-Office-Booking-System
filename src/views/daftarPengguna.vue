@@ -27,7 +27,8 @@
             <b-td>Nama</b-td>
             <b-td>No.Hp</b-td>
             <b-td>Status</b-td>
-            <b-td>Tanggal Registraasi</b-td>
+            <b-td>Tanggal Registrasi</b-td>
+            <b-td>Permintaan</b-td>
           </b-tr>
         </b-thead>
         <b-tbody>
@@ -39,7 +40,7 @@
             <b-td>{{ user.phone }}</b-td>
             <b-td>{{ user.status }}</b-td>
             <b-td>{{ user.tanggal_registrasi }}</b-td>
-
+            <b-td><b-button variant="danger" @click="deleteGedung(gedung.id_gedung)">Hapus</b-button></b-td>
           </b-tr>
         </b-tbody>
       </b-table-simple>
@@ -71,27 +72,6 @@ export default {
     data() {
     return {
         users: [],
-      
-      // fields: ['No', 'Email', 'Nama', 'NomorHp', 'TanggalRegistrasi', 'Aksi'],
-      // items: [
-      //   { No: 1, Email: 'rara@gmail.com', Nama: 'Rara', NomorHp: '085000000000', TanggalRegistrasi: '02-05-2022' },
-      //   { No: 2, Email: 'riri@gmail.com', Nama: 'Riri ', NomorHp: '085000000000',  TanggalRegistrasi: '02-05-2022'},
-      //   { No: 3, Email: 'bayu@gmail.com', Nama: 'Bayu', NomorHp: '085000000000', TanggalRegistrasi: '02-05-2022' },
-      //   { No: 4, Email: 'adit@gmail.con', Nama: 'Adit', NomorHp: '085000000000', TanggalRegistrasi: '02-05-2022' },
-      //   { No: 5, Email: 'bagus@gmail.con', Nama: 'Bagus', NomorHp: '085000000000', TanggalRegistrasi: '02-05-2022' },
-      //   { No: 6, Email: 'sinta@gmail.con', Nama: 'Sinta', NomorHp: '085000000000', TanggalRegistrasi: '02-05-2022' },
-      //   { No: 7, Email: 'xira@gmail.con', Nama: 'Xira', NomorHp: '085000000000', TanggalRegistrasi: '02-05-2022' },
-      //   { No: 8, Email: 'yanti@gmail.con', Nama: 'Yanti', NomorHp: '085000000000', TanggalRegistrasi: '02-05-2022' },
-      //   { No: 9, Email: 'putra@gmail.con', Nama: 'Putra', NomorHp: '085000000000', TanggalRegistrasi: '02-05-2022' },
-      //   { No: 10, Email: 'kamal@gmail.con', Nama: 'Kamal', NomorHp: '085000000000', TanggalRegistrasi: '02-05-2022' },
-      //   { No: 11, Email: 'reza@gmail.con', Nama: 'Reza', NomorHp: '085000000000', TanggalRegistrasi: '02-05-2022' },
-      //   { No: 12, Email: 'dino@gmail.con', Nama: 'Dino', NomorHp: '085000000000', TanggalRegistrasi: '02-05-2022' },
-      //   { No: 13, Email: 'dina@gmail.con', Nama: 'Dino', NomorHp: '085000000000', TanggalRegistrasi: '02-05-2022' },
-      //   { No: 14, Email: 'Cia@gmail.con', Nama: 'Cia', NomorHp: '085000000000', TanggalRegistrasi: '02-05-2022' },
-      //   { No: 15, Email: 'carney@gmail.con', Nama: 'Carney', NomorHp: '085000000000', TanggalRegistrasi: '02-05-2022' },
-
-      // ]
-    
     
     }
   },

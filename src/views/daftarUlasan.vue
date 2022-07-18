@@ -38,7 +38,7 @@ export default {
   },
   data() {
     return {
-      fields: ['No','ID_Pengguna', 'Nama', 'Nomor_HP', 'Nama_Gedung','Jenis Gedung', 'Rating', 'Ulasan_Pengguna', 'Aksi'],
+      fields: ['No','ID_Pengguna', 'Nama', 'Nomor_HP', 'Nama_Gedung','Jenis_Gedung', 'Rating', 'Ulasan_Pengguna', 'Aksi'],
       items: [
         { No: '1', ID_Pengguna: '001', Nama: 'Deden Ahmad', Nomor_HP: '089456789101', Nama_Gedung: 'Hotel Meeting Room',Jenis_Gedung:'Hall', Rating: '4,4', Ulasan_Pengguna: 'Hotel Sangat Baik Pelayanannya' },
         { No: '2', ID_Pengguna: '002', Nama: 'Moel Joko', Nomor_HP: '089456789102', Nama_Gedung: 'Auditorium', Jenis_Gedung:'Hall', Rating: '4,4', Ulasan_Pengguna: 'Ruangan Sangat Rapih dan Bersih' },
