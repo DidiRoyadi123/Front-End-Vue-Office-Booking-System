@@ -10,7 +10,7 @@
       <p>Daftar Ulasan</p>
       <b-table striped hover :items="items" :fields="fields">
         <template #cell(Aksi)>
-          <b-button variant="danger" @click="deleteGedung(gedung.id_gedung)">Sembunyikan</b-button>
+          <b-button variant="danger" @click="deleteGedung(gedung.id_gedung)">Hapus</b-button>
         </template>
       </b-table>
     </b-card>
@@ -38,14 +38,14 @@ export default {
   },
   data() {
     return {
-      fields: ['ID_Pengguna', 'Nama', 'Nomor_HP', 'ID_Email', 'Nama_Gedung', 'Ulasan_Pengguna', 'Aksi'],
+      fields: ['No','ID_Pengguna', 'Nama', 'Nomor_HP', 'Nama_Gedung','Jenis Gedung', 'Rating', 'Ulasan_Pengguna', 'Aksi'],
       items: [
-        { ID_Pengguna: '001', Nama: 'Deden Ahmad', Nomor_HP: '089456789101', ID_Email: 'deden11@gmail.com', Nama_Gedung: 'Hotel Meeting Room', Ulasan_Pengguna: 'Hotel Sangat Baik Pelayanannya' },
-        { ID_Pengguna: '002', Nama: 'Moel Joko', Nomor_HP: '089456789102', ID_Email: 'moel101@gmail.com ', Nama_Gedung: 'Auditorium', Ulasan_Pengguna: 'Ruangan Sangat Rapih dan Bersih' },
-        { ID_Pengguna: '003', Nama: 'Kurnia Dewi', Nomor_HP: '089456789103', ID_Email: 'kurnia11@gmail.com ', Nama_Gedung: 'Gedung Serba Guna', Ulasan_Pengguna: 'Gedung sangat bersih dan segar udaranya' },
-        { ID_Pengguna: '004', Nama: 'Dety Armida', Nomor_HP: '089456789104', ID_Email: 'armida1@gmail.com ', Nama_Gedung: 'Hotel Meeting Room' },
-        { ID_Pengguna: '005', Nama: 'Rivandi', Nomor_HP: '089456789105', ID_Email: 'rivan11@gmail.com', Nama_Gedung: 'Auditorium', Ulasan_Pengguna: 'Ruangan Sangat Rapih dan Bersih' },
-        { ID_Pengguna: '006', Nama: 'Fahri', Nomor_HP: '089456789106', ID_Email: 'fahri21@gmail.com', Nama_Gedung: 'Gedung Serba Guna', Ulasan_Pengguna: 'Gedung sangat bersih dan segar udaranya' },
+        { No: '1', ID_Pengguna: '001', Nama: 'Deden Ahmad', Nomor_HP: '089456789101', Nama_Gedung: 'Hotel Meeting Room',Jenis_Gedung:'Hall', Rating: '4,4', Ulasan_Pengguna: 'Hotel Sangat Baik Pelayanannya' },
+        { No: '2', ID_Pengguna: '002', Nama: 'Moel Joko', Nomor_HP: '089456789102', Nama_Gedung: 'Auditorium', Jenis_Gedung:'Hall', Rating: '4,4', Ulasan_Pengguna: 'Ruangan Sangat Rapih dan Bersih' },
+        { No: '3', ID_Pengguna: '003', Nama: 'Kurnia Dewi', Nomor_HP: '089456789103', Nama_Gedung: 'Gedung Serba Guna', Jenis_Gedung:'Hall', Rating: '4,4', Ulasan_Pengguna: 'Gedung sangat bersih dan segar udaranya' },
+        { No: '4', ID_Pengguna: '004', Nama: 'Dety Armida', Nomor_HP: '089456789104', Nama_Gedung: 'Hotel Meeting Room',Jenis_Gedung:'Hall', Rating: '4,4', },
+        { No: '5', ID_Pengguna: '005', Nama: 'Rivandi', Nomor_HP: '089456789105', Nama_Gedung: 'Auditorium', Jenis_Gedung:'Hall', Rating: '4,4', Ulasan_Pengguna: 'Ruangan Sangat Rapih dan Bersih' },
+        { No: '6', ID_Pengguna: '006', Nama: 'Fahri', Nomor_HP: '089456789106', Nama_Gedung: 'Gedung Serba Guna',Jenis_Gedung:'Hall', Rating: '4,4', Ulasan_Pengguna: 'Gedung sangat bersih dan segar udaranya' },
       ],
     };
   },
