@@ -8,17 +8,6 @@
     <Breadcrumb />
     <b-card>
       <p>Kelola Daftar Gedung</p>
-      <!-- <b-table 
-        striped hover 
-        :items="items" 
-        :fields="fields"
-      >
-      <template #cell(Aksi)>
-         <b-button variant="success" @click="editGedung(gedung.id_gedung)">Edit</b-button>
-          <b-button variant="danger" @click="deleteGedung(gedung.id_gedung)">Hapus</b-button>
-      </template>
-     
-      </b-table> -->
       <b-table-simple striped hover>
         <b-thead>
           <b-tr>
@@ -38,13 +27,76 @@
             <b-td>{{ gedung.location }}</b-td>
             <b-td>{{ gedung.price }}</b-td>
             <b-td>
-              <b-button variant="success" @click="editGedung(gedung.id_gedung)">Edit</b-button>
-              <b-button v-b-modal.hapus variant="danger">Hapus</b-button>
-              <b-modal id="hapus" centered busy>
-                <p class="my-4">Apakah Anda Yakin ?</p>
-                <b-button variant="danger" @click="deleteGedung(gedung.id)">Ya</b-button>
-                <b-button variant="success" @click="$bModal.hide('hapus')">Tidak</b-button>
+              <b-button variant="success" @click="editGedung(gedung.id), $bvModal.show('modalEdit')">Edit</b-button>
+              <!-- Modal Edit -->
+              <b-modal v-model="modalEdit" id="modalEdit" hide-footer hide-header size="xl">
+                
+                <h3>Edit Gedung</h3>
+                <br>
+                <b-form>
+                  <b-form-group>
+                    <b-form-label>ID Gedung</b-form-label>
+                    <b-form-input type="text" v-model="editGedungQuery.id"></b-form-input>
+                  </b-form-group>
+                  <b-form-group>
+                    <b-form-label>Jenis Gedung</b-form-label>
+                    <b-form-input type="text" v-model="editGedungQuery.jenis_gedung"></b-form-input>
+                  </b-form-group>
+                  <b-form-group>
+                    <b-form-label>Nama Gedung</b-form-label>
+                    <b-form-input type="text" v-model="editGedungQuery.name"></b-form-input>
+                  </b-form-group>
+                  <b-form-group>
+                    <b-form-label>Lokasi</b-form-label>
+                    <b-form-input type="text" v-model="editGedungQuery.location"></b-form-input>
+                  </b-form-group>
+                  <b-form-group>
+                    <b-form-label>Latitude</b-form-label>
+                    <b-form-input type="text" v-model="editGedungQuery.latitude"></b-form-input>
+                  </b-form-group>
+                  <b-form-group>
+                    <b-form-label>Longitude</b-form-label>
+                    <b-form-input type="text" v-model="editGedungQuery.longitude"></b-form-input>
+                  </b-form-group>
+                  <b-form-group>
+                    <b-form-label>Harga</b-form-label>
+                    <b-form-input type="text" v-model="editGedungQuery.price"></b-form-input>
+                  </b-form-group>
+                  <b-form-group>
+                    <b-form-label>Deskripsi</b-form-label>
+                    <b-form-textarea v-model="editGedungQuery.description"></b-form-textarea>
+                  </b-form-group>
+
+                </b-form>
+                <br>
+                <b-button variant="primary" block @click="updateGedung(editGedungQuery.id), $bvModal.hide('modalEdit')">
+                  Simpan</b-button>
+                  <b-button variant="success" block @click="$bvModal.hide('modalEdit')">Batal</b-button>
               </b-modal>
+
+
+              <b-button id="show-btn" @click="$bvModal.show('modalDelete' + gedung.id),id" variant="danger">Hapus</b-button>
+              <!-- Modal delete -->
+              <b-modal hide-footer hide-header centered :id="'modalDelete' + gedung.id" >
+                <div class="d-block text-center">
+                  <svg width="76" height="65" viewBox="0 0 76 65" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path
+                      d="M32.8546 1.80893C37.9538 -0.867566 44.4402 0.890972 47.2897 5.6742L74.5476 50.4501C75.1475 51.7866 75.41 52.8734 75.4849 54.0024C75.6349 56.6402 74.6601 59.2041 72.7479 61.1772C70.8357 63.1432 68.2487 64.3039 65.4366 64.4446H10.5459C9.38358 64.3777 8.22128 64.128 7.13396 63.7411C1.69738 61.6661 -0.927177 55.8277 1.28495 50.7666L28.7303 5.64254C29.6677 4.05634 31.0924 2.6882 32.8546 1.80893ZM37.9913 44.1158C36.1916 44.1158 34.6918 45.5227 34.6918 47.2144C34.6918 48.8991 36.1916 50.3094 37.9913 50.3094C39.791 50.3094 41.2532 48.8991 41.2532 47.1757C41.2532 45.491 39.791 44.1158 37.9913 44.1158ZM37.9913 22.1728C36.1916 22.1728 34.6918 23.5409 34.6918 25.2327V35.1825C34.6918 36.8707 36.1916 38.281 37.9913 38.281C39.791 38.281 41.2532 36.8707 41.2532 35.1825V25.2327C41.2532 23.5409 39.791 22.1728 37.9913 22.1728Z"
+                      fill="#FFE60C" />
+                  </svg>
+                  <h3>Apakah Anda Yakin?</h3>
+                  <h6>Data yang anda hapus akan hilang</h6>
+                  <p>ini id :</p> {{id}}
+                  <p>ini geung.id :</p> {{gedung.id}}
+                </div>
+                <div class="col-12 text-center">
+                  <b-button class="mt-3" variant="success" @click="$bvModal.hide('modalDelete' + gedung.id)">Batal</b-button>
+                  <b-button class="mt-3" variant="danger" @click="deleteGedung(gedung.id), $bvModal.hide('modalDelete'+ gedung.id)">
+                    Ok
+                  </b-button>
+                </div>
+              </b-modal>
+
             </b-td>
           </b-tr>
         </b-tbody>
@@ -66,6 +118,7 @@ import FooterComponent from '@/components/footerComponent.vue'
 import LiveChatBtn from '@/components/liveChatBtn.vue'
 import axios from 'axios'
 
+
 export default {
   name: 'kelolaGedung',
   components: {
@@ -77,51 +130,77 @@ export default {
   },
   data() {
     return {
-      //   fields: ['No', 'ID_Gedung', 'Jenis_Gedung', 'Lokasi', 'Harga', 'Aksi'],
-      //   items: [
-      //     { No: 1, ID_Gedung: '002',Jenis_Gedung: 'Low-rise', Lokasi: 'Macdonald', Harga: 'Rp. 100.000/Day' },
-      //     { No: 2, ID_Gedung: '003',Jenis_Gedung: 'Mid-rise', Lokasi: 'Shaw ', Harga: 'Rp. 100.000/Day' },
-      //     { No: 3, ID_Gedung: '003',Jenis_Gedung: 'Mid-rise', Lokasi: 'Shaw ', Harga: 'Rp. 100.000/Day' },
-      //     { No: 4, ID_Gedung: '003',Jenis_Gedung: 'Mid-rise', Lokasi: 'Shaw ', Harga: 'Rp. 100.000/Day' },
-      //     { No: 5, ID_Gedung: '004',Jenis_Gedung: 'High-rise', Lokasi: 'Wilson', Harga: 'Rp. 100.000/Day' },
-      //     { No: 6, ID_Gedung: '005',Jenis_Gedung: 'Kantor dengan ruang ritel', Lokasi: 'Carney', Harga: 'Rp. 100.000/Day' },
-      //     { No: 7, ID_Gedung: '005',Jenis_Gedung: 'Low-rise, multitenant', Lokasi: 'Carney', Harga: 'Rp. 100.000/Day' },
-      //   ]
+      gedungs: [],
+      editGedungQuery: "",
+      modalDelete: false,
+      // modalEdit: false,
 
-      gedungs: []
     }
-
-
   },
   mounted() {
-    axios
-      .get('https://officebooking-app-pn6n3.ondigitalocean.app/admin/gedungs')
-      .then(response => {
-        this.gedungs = response.data.data
-        console.log(this.gedungs)
-      })
-      .catch(error => {
-        console.log(error)
-      })
+    this.fetchGedung()
   },
   methods: {
-
-    editGedung(id) {
-      this.$router.push('/editGedung/' + id)
-    },
-    deleteGedung(id) {
-      axios.delete('api/gedung/' + id)
+    fetchGedung() {
+      axios
+        .get('https://officebooking-app-pn6n3.ondigitalocean.app/admin/gedungs')
         .then(response => {
-          this.getGedung(response)
+          this.gedungs = response.data.data
         })
         .catch(error => {
           console.log(error)
         })
-    }
+    },
+    editGedung(id) {
 
+      axios
+        .get('https://officebooking-app-pn6n3.ondigitalocean.app/admin/gedung/' + id)
+
+        .then(response => {
+          this.editGedungQuery = response.data.data
+          this.fetchGedung()
+        })
+        .catch(error => {
+          console.log(error)
+        })
+
+    },
+    updateGedung(id) {
+      axios
+        .put('https://officebooking-app-pn6n3.ondigitalocean.app/admin/gedungs/' + id, {
+          // id: this.editGedungQuery.id,
+          // jenis_gedung: this.editGedungQuery.jenis_gedung,
+          name: this.editGedungQuery.name,
+          location: this.editGedungQuery.location,
+          price: this.editGedungQuery.price,
+          latitude: this.editGedungQuery.latitude,
+          longitude: this.editGedungQuery.longitude,
+          description: this.editGedungQuery.description
+        })
+        .then(response => {
+          this.fetchGedung(response)
+          this.modalEdit = true
+
+        })
+        .catch(error => {
+          console.log(error)
+        })
+
+    },
+    // deleteGedung(id) {
+    //   axios.delete('https://officebooking-app-pn6n3.ondigitalocean.app/admin/gedung/' + id)
+    //     .then(response => {
+    //       this.fetchGedung(response)
+    //       console.log(id)
+    //     })
+    //     .catch(error => {
+    //       console.log(error)
+    //     })
+    // }
   }
-
 }
+
+
 </script>
 
 <style scoped>
