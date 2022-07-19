@@ -1,27 +1,31 @@
-import Vue from 'vue'
-import App from './App.vue'
-import './registerServiceWorker'
-import router from './router'
-import store from './store'
-import { BootstrapVue, BootstrapVueIcons ,IconsPlugin} from 'bootstrap-vue'
-import axios from 'axios'
+/** @format */
 
-axios.defaults.withCredentials = true
+import Vue from "vue";
+import App from "./App.vue";
+import "./registerServiceWorker";
+import router from "./router";
+import store from "./store";
+import { BootstrapVue, BootstrapVueIcons, IconsPlugin } from "bootstrap-vue";
+import axios from "axios";
+// import VueWebsocket from "vue-websocket";
+
+axios.defaults.withCredentials = true;
 // axios.defaults.baseURL = 'https://mocki.io/v1/eaad110a-08c3-477f-a37b-583945c3b475';
 
 // Import Bootstrap and BootstrapVue CSS files (order is important)
-import 'bootstrap/dist/css/bootstrap.css'
-import 'bootstrap-vue/dist/bootstrap-vue.css'
+import "bootstrap/dist/css/bootstrap.css";
+import "bootstrap-vue/dist/bootstrap-vue.css";
 
 // Make BootstrapVue available throughout your project
-Vue.use(BootstrapVue)
+Vue.use(BootstrapVue);
 // Optionally install the BootstrapVue icon components plugin
-Vue.use(IconsPlugin)
-Vue.use(BootstrapVueIcons)
-Vue.config.productionTip = false
+Vue.use(IconsPlugin);
+Vue.use(BootstrapVueIcons);
+Vue.config.productionTip = false;
+// Vue.use(VueWebsocket, "https://gauri-golang-chat.herokuapp.com/");
 
 new Vue({
-  router,
-  store,
-  render: h => h(App)
-}).$mount('#app')
+	router,
+	store,
+	render: h => h(App),
+}).$mount("#app");

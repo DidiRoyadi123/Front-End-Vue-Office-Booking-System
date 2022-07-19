@@ -1,3 +1,5 @@
+<!-- @format -->
+
 <template>
     <div class="login">
         <img alt="Vue logo" src="../assets/logo.png">
@@ -122,54 +124,56 @@ img {
     margin-bottom: 5%;
 }
 
-.loginBtn {
-    padding-right: 40px !important;
-    padding-left: 40px !important;
-    background-color: #1CAB59 !important;
-    border-radius: 10px !important;
-}
+	img {
+		margin-bottom: 5%;
+	}
 
-.form-control {
-    display: inline-block !important;
-    margin-bottom: 30px;
-    border: 1px solid #1CAB59 !important;
-    border-left: 0 !important;
-    border-radius: 5px;
-    width: 40% !important;
-    height: 40px;
+	.loginBtn {
+		padding-right: 40px !important;
+		padding-left: 40px !important;
+		background-color: #1cab59 !important;
+		border-radius: 10px !important;
+	}
 
-}
+	.form-control {
+		display: inline-block !important;
+		margin-bottom: 30px;
+		border: 1px solid #1cab59 !important;
+		border-left: 0 !important;
+		border-radius: 5px;
+		width: 40% !important;
+		height: 40px;
+	}
 
-.container-fluid {
-    padding-left: 10%;
-    padding-right: 10%;
-    display: flex !important;
-    flex-direction: column;
-    width: 65% !important;
-}
+	.container-fluid {
+		padding-left: 10%;
+		padding-right: 10%;
+		display: flex !important;
+		flex-direction: column;
+		width: 65% !important;
+	}
 
-.prepend {
-    border: 1px solid #1CAB59 !important;
-    border-right: 0 !important;
-    border-radius: 5px 0px 0px 5px;
-}
+	.prepend {
+		border: 1px solid #1cab59 !important;
+		border-right: 0 !important;
+		border-radius: 5px 0px 0px 5px;
+	}
 
-.input-group {
-    width: 100% !important;
+	.input-group {
+		width: 100% !important;
+	}
 
-}
+	.showPasswordBtn {
+		display: inline-block;
+		background-color: white;
+		border-radius: 0px 5px 5px 0px;
+		height: 40px;
+		border: 1px solid #1cab59 !important;
+		border-left: 0 !important;
+	}
 
-.showPasswordBtn {
-    display: inline-block;
-    background-color: white;
-    border-radius: 0px 5px 5px 0px;
-    height: 40px;
-    border: 1px solid #1CAB59 !important;
-    border-left: 0 !important;
-}
-
-.btn:active {
-    outline: none !important;
-    box-shadow: none;
-}
+	.btn:active {
+		outline: none !important;
+		box-shadow: none;
+	}
 </style>

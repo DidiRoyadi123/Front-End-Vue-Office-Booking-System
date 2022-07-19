@@ -79,7 +79,7 @@
 							this.items.push({
 								ID: item.id,
 								ID_Pemesanan: item.bookingcode,
-								Nama: item.user.fullname || "-",
+								Nama: item.user.name || "-",
 								NomorHp: item.user.phone || "-",
 								Tanggal_Masuk: item.checkin || "-",
 								Tanngal_Keluar: item.checkout || "-",
@@ -91,12 +91,12 @@
 							});
 						});
 						this.items.push({
-							Nama_Gedung:  "-",
+							Nama_Gedung: "-",
 							Jumlah_Pemesanan: "-",
 							Total_Harga: "-",
 							ID: item.id,
 							ID_Pemesanan: item.bookingcode,
-							Nama: item.user.fullname || "-",
+							Nama: item.user.name || "-",
 							NomorHp: item.user.phone || "-",
 							Tanggal_Masuk: item.checkin || "-",
 							Tanngal_Keluar: item.checkout || "-",

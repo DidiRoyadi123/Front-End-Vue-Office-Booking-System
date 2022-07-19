@@ -35,8 +35,10 @@
 	import Breadcrumb from "../components/breadcrumb.vue";
 	import FooterComponent from "@/components/footerComponent.vue";
 	import LiveChatBtn from "@/components/liveChatBtn.vue";
+	import PopupReview from "@/components/popupReview.vue";
 	import axios from "axios";
 	// import { getReview, getGedung } from "../common/getData";
+
 	export default {
 		name: "daftarUlasan",
 		components: {
@@ -45,7 +47,7 @@
 			Breadcrumb,
 			FooterComponent,
 			LiveChatBtn,
-			
+			PopupReview,
 		},
 		data() {
 			return {
