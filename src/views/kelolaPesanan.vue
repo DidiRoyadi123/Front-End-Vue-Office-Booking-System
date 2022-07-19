@@ -19,9 +19,9 @@
 						<b-button variant="success" @click="EditPesanan(data.item)"
 							>Edit</b-button
 						>
-						<b-button variant="info" @click="BCPesanan()">Kirim Bc</b-button>
+						<b-button variant="info" @click="BCPesanan()">Kirim Kode</b-button>
 					</div>
-					<div v-else>Sudah Diterima</div>
+					<div v-else>Kode Telah Dikirim</div>
 				</template>
 			</b-table>
 		</b-card>

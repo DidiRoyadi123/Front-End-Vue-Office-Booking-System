@@ -112,12 +112,15 @@
 						></b-form-input>
 					</b-col>
 					<b-col sm="2" class="row"> </b-col>
-					<b-col sm="2">
+					<b-col v-if="loading1" sm="2">
 						<button class="btn btn-success float-right mt-3" type="submit">
 							Buat
 						</button>
 						<button class="btn btn-success float-right mt-3">Batal</button>
 					</b-col>
+					<b-col v-else sm="2">
+						<b-spinner variant="success" label="Spinning"></b-spinner
+					></b-col>
 				</form>
 			</b-container>
 		</b-card>
@@ -149,9 +152,16 @@
 				options: [{ value: null, text: "Pilih Gedung yang anda mau" }],
 				nearby: [],
 				loading: true,
-				items: [],
+				items: [
+					{
+						Tanngal_Keluar: null,
+						Tanggal_Masuk: null,
+					},
+				],
 				edit: false,
 				selected: null,
+				loading1: true,
+				disabled: false,
 			};
 		},
 		mounted() {
@@ -185,22 +195,86 @@
 
 		methods: {
 			async simpan() {
+				var date = () => {
+					var today = new Date();
+					var dd = today.getDate();
+
+					var mm = today.getMonth() + 1;
+					var yyyy = today.getFullYear();
+					if (dd < 10) {
+						dd = "0" + dd;
+					}
+
+					if (mm < 10) {
+						mm = "0" + mm;
+					}
+					today = mm + "-" + dd + "-" + yyyy;
+					return today;
+				};
+				this.loading1 = false;
+				let data = [];
+				// date();
+				// this.items.forEach(item => {
+				// 	data.push({
+				// 		status: "0",
+				// 		bookingcode: item.ID_Pemesanan,
+				// 		checkin: item.Tanggal_Masuk,
+				// 		checkout: item.Tanggal_Keluar,
+				// 	});
+				// });
 				if (this.edit) {
 					let url =
-						"https://officebooking-app-pn6n3.ondigitalocean.app/admin/gedung" +
-						this.items.id;
-					await axios.put(url, this.items).then(res => {
-						console.log(res);
-						this.$router.push("/kelolaPesanan");
-					});
+						"https://officebooking-app-pn6n3.ondigitalocean.app/admin/booking/" +
+						this.items.ID;
+
+					// console.log(this.items);
+					// data = JSON.stringify({
+					// 	checkout: this.items.Tanngal_Keluar,
+					// 	orderdate: date().toString(),
+					// 	checkin: this.items.Tanggal_Masuk,
+					// });
+					console.log(data);
+					await axios
+						.put(url, {
+							checkout: this.items.Tanngal_Keluar,
+							orderdate: date().toString(),
+							checkin: this.items.Tanggal_Masuk,
+						})
+						.then(res => {
+							console.log(res);
+							this.$router.push("/kelolaPesanan");
+						})
+						.catch(err => {
+							console.log(err);
+						});
 				} else {
+					// console.log(this.items);
 					let url =
-						"https://officebooking-app-pn6n3.ondigitalocean.app/admin/gedung";
-					await axios.post(url, this.items).then(res => {
-						console.log(res);
-						this.$router.push("/kelolaPesanan");
+						"https://officebooking-app-pn6n3.ondigitalocean.app/admin/booking";
+					data = JSON.stringify({
+						status: "0",
+						checkout: this.items.Tanngal_Keluar,
+						bookingcode: Math.random().toString(),
+						orderdate: date().toString(),
+						checkin: this.items.Tanggal_Masuk,
 					});
+					// console.log(JSON.parse(data));
+					await axios
+						.post(url, data, {
+							headers: {
+								// Overwrite Axios's automatically set Content-Type
+								"Content-Type": "application/json",
+							},
+						})
+						.then(res => {
+							console.log(res);
+							this.$router.push("/kelolaPesanan");
+						})
+						.catch(err => {
+							console.log(err);
+						});
 				}
+				this.loading1 = true;
 			},
 		},
 	};
