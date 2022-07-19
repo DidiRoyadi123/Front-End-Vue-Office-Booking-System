@@ -120,7 +120,6 @@
 					</b-col>
 				</form>
 			</b-container>
-			{{ items }}
 		</b-card>
 		<FooterComponent />
 	</div>
