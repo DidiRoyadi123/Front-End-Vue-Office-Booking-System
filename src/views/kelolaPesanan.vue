@@ -12,7 +12,7 @@
 			<b-spinner variant="success" label="Spinning"></b-spinner>
 		</b-card>
 		<b-card v-else>
-			<p>Kelola Pesanan</p>
+			<p>Daftar Pemesanan</p>
 			<b-table striped hover :items="items" :fields="fields">
 				<template #cell(Permintaan)="data">
 					<div v-if="data.item.Status === 'Belum Diterima'">
