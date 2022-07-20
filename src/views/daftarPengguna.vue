@@ -39,7 +39,7 @@
             <b-td>{{ user.name }}</b-td>
             <b-td>{{ user.phone }}</b-td>
             <b-td>{{ user.status }}</b-td>
-            <b-td>{{ user.tanggal_registrasi }}</b-td>
+            <b-td>{{ user.CreatedAt }}</b-td>
             <b-td><b-button variant="danger" @click="$bvModal.show('modalDelete' + user.id)">Hapus</b-button></b-td>
              <!-- Modal delete -->
               <b-modal hide-footer hide-header centered :id="'modalDelete' + user.id" >
