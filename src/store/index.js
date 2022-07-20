@@ -38,7 +38,10 @@ export default new Vuex.Store({
 				})
 				.then(response => {
 					// console.log(response.data);
+
 					localStorage.setItem("token", response.data.token);
+					localStorage.setItem("email", response.data.email);
+					localStorage.setItem("id", response.data.id_user);
 					store.commit("getStatusLogin", response.data.status);
 					if (response.data.status == true) {
 						router.push({ path: "/beranda" });

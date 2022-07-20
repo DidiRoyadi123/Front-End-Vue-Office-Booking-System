@@ -87,6 +87,28 @@ export default {
             this.passwordTipe = this.passwordTipe === 'password' ? 'text' : 'password'
         },
         ...mapActions(['loginAdmin']),
+        // login() {
+        //     if (this.$store.state.status===true) {
+        //         this.$router.push('/beranda')
+        //     } else {
+        //         alert('Username atau Password salah')
+        //     }
+        // }
+
+        // login() {
+        //     axios
+        //         .post("https://officebooking-app-295f2.ondigitalocean.app/login", this.input.email, this.input.password)
+        //         .then(response => this.statusQuery = response.status)
+        //         .catch(error => {
+        //             console.log(error)
+        //             this.errored = true
+        //         })
+        //     if (this.statusQuery === true) {
+        //         this.$router.push('/beranda')
+        //     } else {
+        //         alert('Username atau Password salah')
+        //     }
+        // }
     }
 }
 </script>
