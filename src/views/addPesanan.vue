@@ -25,6 +25,7 @@
 							class="form-select"
 							v-model="selected"
 							:options="options"
+							:disabled="edit"
 						></b-form-select>
 					</b-col>
 					<b-col sm="2" class="row mb-3">
@@ -37,6 +38,7 @@
 							id="input-small"
 							type="text"
 							size="sm"
+							:disabled="edit"
 							v-model="items.Nama"
 							placeholder="Masukkan Nama Lengkap"
 						></b-form-input>
@@ -51,6 +53,7 @@
 							id="input-small"
 							type="text"
 							size="sm"
+							:disabled="edit"
 							v-model="items.NomorHp"
 							placeholder="Masukkan No Handphone"
 						></b-form-input>
@@ -79,6 +82,7 @@
 							id="input-small"
 							type="text"
 							size="sm"
+							:disabled="edit"
 							v-model="items.Total_Harga"
 							placeholder="Masukkan Total Harga"
 						></b-form-input>
@@ -152,12 +156,7 @@
 				options: [{ value: null, text: "Pilih Gedung yang anda mau" }],
 				nearby: [],
 				loading: true,
-				items: [
-					{
-						Tanngal_Keluar: null,
-						Tanggal_Masuk: null,
-					},
-				],
+				items: [],
 				edit: false,
 				selected: null,
 				loading1: true,
@@ -233,16 +232,27 @@
 					// 	orderdate: date().toString(),
 					// 	checkin: this.items.Tanggal_Masuk,
 					// });
-					console.log(data);
+					console.log(this.items);
 					await axios
-						.put(url, {
-							checkout: this.items.Tanngal_Keluar,
-							orderdate: date().toString(),
-							checkin: this.items.Tanggal_Masuk,
-							phone: this.items.NomorHp,
-							totalbooking: this.items.Jumlah_Pemesanan,
-							fullname: this.items.Nama,
-						})
+						.put(
+							url,
+							{
+								checkout: this.items.Tanngal_Keluar,
+								orderdate: date().toString(),
+								checkin: this.items.Tanggal_Masuk,
+								phone: this.items.NomorHp,
+								price: this.items.Total_Harga,
+								totalbooking: this.items.Jumlah_Pemesanan,
+								fullname: this.items.Nama,
+							},
+							{
+								headers: {
+									// Overwrite Axios's automatically set Content-Type
+									"Content-Type": "application/json",
+								},
+							}
+						)
+
 						.then(res => {
 							console.log(res);
 							this.$router.push("/kelolaPesanan");

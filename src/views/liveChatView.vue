@@ -48,7 +48,7 @@
 				? "wss"
 				: "ws";
 			this.connection = new WebSocket(
-				`${protocol}://gauri-golang-chat.herokuapp.com`
+				`${protocol}://gauri-golang-chat.herokuapp.com/getAllMessages`
 			);
 			this.connection.onopen = event => {
 				console.log(event);
