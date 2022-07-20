@@ -239,6 +239,9 @@
 							checkout: this.items.Tanngal_Keluar,
 							orderdate: date().toString(),
 							checkin: this.items.Tanggal_Masuk,
+							phone: this.items.NomorHp,
+							totalbooking: this.items.Jumlah_Pemesanan,
+							fullname: this.items.Nama,
 						})
 						.then(res => {
 							console.log(res);
@@ -254,11 +257,14 @@
 					data = JSON.stringify({
 						status: "0",
 						checkout: this.items.Tanngal_Keluar,
+						fullname: this.items.Nama,
+						totalbooking: this.items.Jumlah_Pemesanan,
 						bookingcode: Math.random().toString(),
 						orderdate: date().toString(),
 						checkin: this.items.Tanggal_Masuk,
+						phone: this.items.NomorHp,
 					});
-					// console.log(JSON.parse(data));
+					console.log(JSON.parse(data));
 					await axios
 						.post(url, data, {
 							headers: {

@@ -75,34 +75,31 @@
 					const data = res.data.data;
 					data.forEach(item => {
 						var gedung = item.gedung;
+						var user = item.user;
 						gedung.forEach(item1 => {
-							this.items.push({
-								ID: item.id,
-								ID_Pemesanan: item.bookingcode,
-								Nama: item.user.name || "-",
-								NomorHp: item.user.phone || "-",
-								Tanggal_Masuk: item.checkin || "-",
-								Tanngal_Keluar: item.checkout || "-",
-								Status:
-									item.status === "0" ? "Belum Diterima" : "Sudah Diterima",
-								Nama_Gedung: item1.name || "Lupa Masukkan",
-								Jumlah_Pemesanan: item1.jumlah || "Lupa Masukkan",
-								Total_Harga: item1.price || "Lupa Narok",
+							user.forEach(item2 => {
+								this.items.push({
+									Nama_Gedung: item1.name || "Lupa Masukkan",
+									Total_Harga: item1.price || "Lupa Narok",
+									ID: item.id,
+									Nama: item2.fullname || "-",
+									NomorHp: item2.phone || "-",
+									Jumlah_Pemesanan: item.totalbooking || "Lupa Masukkan",
+									ID_Pemesanan: item.bookingcode,
+									Tanggal_Masuk: item.checkin || "-",
+									Tanngal_Keluar: item.checkout || "-",
+									Status:
+										item.status === "0" ? "Belum Diterima" : "Sudah Diterima",
+								});
 							});
 						});
-						this.items.push({
-							Nama_Gedung: "-",
-							Jumlah_Pemesanan: "-",
-							Total_Harga: "-",
-							ID: item.id,
-							ID_Pemesanan: item.bookingcode,
-							Nama: item.user.name || "-",
-							NomorHp: item.user.phone || "-",
-							Tanggal_Masuk: item.checkin || "-",
-							Tanngal_Keluar: item.checkout || "-",
-							Status: item.status === "0" ? "Belum Diterima" : "Sudah Diterima",
-						});
+
+						// this.items.push({
+						// 	Nama_Gedung: item.gedung.name || "Lupa Masukkan",
+						// 	Total_Harga: item.gedung.price || "Lupa Narok",
+						// });
 					});
+					console.log(this.items);
 					this.loading = false;
 				})
 				.catch(e => {
