@@ -48,7 +48,7 @@
 				? "wss"
 				: "ws";
 			this.connection = new WebSocket(
-				`${protocol}://gauri-golang-chat.herokuapp.com/getAllMessages`
+				`${protocol}://gauri-golang-chat.herokuapp.com`
 			);
 			this.connection.onopen = event => {
 				console.log(event);
@@ -68,7 +68,9 @@
 		margin-left: 25px;
 		margin-bottom: 25px;
 	}
-
+	.liveChat {
+background-color: #e5e5e5;
+	}
 	.footer {
 		position: fixed !important;
 		bottom: 0;
