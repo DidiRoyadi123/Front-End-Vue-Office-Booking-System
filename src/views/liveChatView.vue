@@ -26,6 +26,7 @@
 	import Breadcrumb from "../components/breadcrumb.vue";
 	import RightChat from "@/components/displayLiveChatRight.vue";
 	import LeftChat from "@/components/displayLiveChatLeft.vue";
+	import axios from "axios";
 
 	export default {
 		name: "profilAdmin",
@@ -40,25 +41,37 @@
 		data() {
 			return {
 				connection: null,
+				item: [],
 			};
 		},
 		mounted() {
-			console.log("start connection");
-			const protocol = window.location.protocol.includes("https")
-				? "wss"
-				: "ws";
-			this.connection = new WebSocket(
-				`${protocol}://gauri-golang-chat.herokuapp.com`
-			);
-			this.connection.onopen = event => {
-				console.log(event);
-				console.log("Success");
-			};
-			this.connection.onmessage = event => {
-				console.log(event);
-			};
-		},
-	};
+			axios
+			.get("https://gauri-golang-chat.herokuapp.com/getAllMessages").then(response => {
+				var data = response.Messages;
+				data.forEach(item => {
+					this.item.push({
+						userName: item.userName,
+						body: item.body,
+						timestamp: item.timestamp,
+					});
+					})
+				});
+				},};
+			// console.log("start connection");
+			// const protocol = window.location.protocol.includes("https")
+			// 	? "wss"
+			// 	: "ws";
+			// this.connection = new WebSocket(
+			// 	`${protocol}://gauri-golang-chat.herokuapp.com`
+			// );
+			// this.connection.onopen = event => {
+			// 	console.log(event);
+			// 	console.log("Success");
+			// };
+			// this.connection.onmessage = event => {
+			// 	console.log(event);
+			// };},
+	
 </script>
 
 <style scoped>
