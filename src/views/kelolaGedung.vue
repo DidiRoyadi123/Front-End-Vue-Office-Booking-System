@@ -6,7 +6,10 @@
     <br>
     <br>
     <Breadcrumb />
-    <b-card>
+    <b-card v-if="loading">
+			<b-spinner variant="success" label="Spinning"></b-spinner>
+		</b-card>
+    <b-card v-else>
       <p>Kelola Daftar Gedung</p>
       <b-table-simple striped hover>
         <b-thead>
@@ -20,6 +23,7 @@
           </b-tr>
         </b-thead>
         <b-tbody>
+    
           <b-tr v-for="(gedung, id) in gedungs" :key="id">
             <b-td>ini nomor </b-td>
             <b-td>{{ gedung.id }}</b-td>
@@ -153,7 +157,7 @@ export default {
       //   nearby:[],
       //   jenisgedung: [],
       // },
-
+      loading: true,
       modalDelete: false,
       modalEdit: false,
 
@@ -168,9 +172,11 @@ export default {
         .get('https://officebooking-app-pn6n3.ondigitalocean.app/admin/gedungs')
         .then(response => {
           this.gedungs = response.data.data
+          this.loading = false;
         })
         .catch(error => {
           console.log(error)
+          this.loading = false;
         })
     },
     editGedung(id) {
