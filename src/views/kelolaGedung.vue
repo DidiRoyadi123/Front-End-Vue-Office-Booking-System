@@ -25,57 +25,13 @@
             <b-td>{{ gedung.id }}</b-td>
             <b-td>{{ gedung.jenis_gedung }}</b-td>
             <b-td>{{ gedung.location }}</b-td>
-            <b-td>{{ gedung.price }}</b-td>
+            <b-td>Rp. {{ gedung.price }} /Day</b-td>
             <b-td>
-              <b-button variant="success" @click="editGedung(gedung.id), $bvModal.show('modalEdit')">Edit</b-button>
-              <!-- Modal Edit -->
-              <b-modal v-model="modalEdit" id="modalEdit" hide-footer hide-header size="xl">
-                
-                <h3>Edit Gedung</h3>
-                <br>
-                <b-form>
-                  <b-form-group>
-                    <b-form-label>ID Gedung</b-form-label>
-                    <b-form-input type="text" v-model="editGedungQuery.id"></b-form-input>
-                  </b-form-group>
-                  <b-form-group>
-                    <b-form-label>Jenis Gedung</b-form-label>
-                    <b-form-input type="text" v-model="editGedungQuery.jenis_gedung"></b-form-input>
-                  </b-form-group>
-                  <b-form-group>
-                    <b-form-label>Nama Gedung</b-form-label>
-                    <b-form-input type="text" v-model="editGedungQuery.name"></b-form-input>
-                  </b-form-group>
-                  <b-form-group>
-                    <b-form-label>Lokasi</b-form-label>
-                    <b-form-input type="text" v-model="editGedungQuery.location"></b-form-input>
-                  </b-form-group>
-                  <b-form-group>
-                    <b-form-label>Latitude</b-form-label>
-                    <b-form-input type="text" v-model="editGedungQuery.latitude"></b-form-input>
-                  </b-form-group>
-                  <b-form-group>
-                    <b-form-label>Longitude</b-form-label>
-                    <b-form-input type="text" v-model="editGedungQuery.longitude"></b-form-input>
-                  </b-form-group>
-                  <b-form-group>
-                    <b-form-label>Harga</b-form-label>
-                    <b-form-input type="text" v-model="editGedungQuery.price"></b-form-input>
-                  </b-form-group>
-                  <b-form-group>
-                    <b-form-label>Deskripsi</b-form-label>
-                    <b-form-textarea v-model="editGedungQuery.description"></b-form-textarea>
-                  </b-form-group>
-
-                </b-form>
-                <br>
-                <b-button variant="primary" block @click="updateGedung(editGedungQuery.id), $bvModal.hide('modalEdit')">
-                  Simpan</b-button>
-                  <b-button variant="success" block @click="$bvModal.hide('modalEdit')">Batal</b-button>
-              </b-modal>
+              <b-button variant="success" @click="editGedung(gedung.id),$bvModal.show('modalEdit')">Edit</b-button>
+              
 
 
-              <b-button id="show-btn" @click="$bvModal.show('modalDelete' + gedung.id),id" variant="danger">Hapus</b-button>
+              <b-button id="show-btn" @click="$bvModal.show('modalDelete' + gedung.id)" variant="danger">Hapus</b-button>
               <!-- Modal delete -->
               <b-modal hide-footer hide-header centered :id="'modalDelete' + gedung.id" >
                 <div class="d-block text-center">
@@ -86,8 +42,7 @@
                   </svg>
                   <h3>Apakah Anda Yakin?</h3>
                   <h6>Data yang anda hapus akan hilang</h6>
-                  <p>ini id :</p> {{id}}
-                  <p>ini geung.id :</p> {{gedung.id}}
+                  
                 </div>
                 <div class="col-12 text-center">
                   <b-button class="mt-3" variant="success" @click="$bvModal.hide('modalDelete' + gedung.id)">Batal</b-button>
@@ -99,6 +54,50 @@
 
             </b-td>
           </b-tr>
+          <!-- Modal Edit -->
+              <b-modal id="modalEdit" v-for="edit in editGedungQuery" :key="edit.id" hide-footer hide-header size="xl">
+                <h3>Edit Gedung</h3>
+                <br>
+                <b-form>
+                  <b-form-group>
+                    <b-form-label>ID Gedung</b-form-label>
+                    <b-form-input type="text" v-model="edit.id" disabled></b-form-input>
+                  </b-form-group>
+                  <b-form-group>
+                    <b-form-label>Jenis Gedung</b-form-label>
+                    <b-form-input type="text" v-model="edit.jenisgedung"></b-form-input>
+                  </b-form-group>
+                  <b-form-group>
+                    <b-form-label>Nama Gedung</b-form-label>
+                    <b-form-input type="text" v-model="edit.name"></b-form-input>
+                  </b-form-group>
+                  <b-form-group>
+                    <b-form-label>Lokasi</b-form-label>
+                    <b-form-input type="text" v-model="edit.location"></b-form-input>
+                  </b-form-group>
+                  <b-form-group>
+                    <b-form-label>Latitude</b-form-label>
+                    <b-form-input type="text" v-model="edit.latitude"></b-form-input>
+                  </b-form-group>
+                  <b-form-group>
+                    <b-form-label>Longitude</b-form-label>
+                    <b-form-input type="text" v-model="edit.longitude"></b-form-input>
+                  </b-form-group>
+                  <b-form-group>
+                    <b-form-label>Harga</b-form-label>
+                    <b-form-input type="text" v-model="edit.price"></b-form-input>
+                  </b-form-group>
+                  <b-form-group>
+                    <b-form-label>Deskripsi</b-form-label>
+                    <b-form-textarea v-model="edit.description"></b-form-textarea>
+                  </b-form-group>
+
+                </b-form>
+                <br>
+                <b-button variant="primary" block @click="updateGedung(edit.id), $bvModal.hide('modalEdit')">
+                  Simpan</b-button>
+                  <b-button variant="success" block @click="$bvModal.hide('modalEdit')">Batal</b-button>
+              </b-modal>
         </b-tbody>
       </b-table-simple>
 
@@ -131,9 +130,33 @@ export default {
   data() {
     return {
       gedungs: [],
-      editGedungQuery: "",
+      editGedungQuery: {
+        id: "",
+        name: "",
+        location: "",
+        price: "",
+        latitude: "",
+        longitude: "",
+        description: "",
+        reviews:[],
+        nearby:[],
+        jenisgedung: [],
+      },
+      // edit: {
+      //   id: '',
+      //   name: '',
+      //   location: '',
+      //   price: '',
+      //   latitude: '',
+      //   longitude: '',
+      //   description: '',
+      //   reviews:[],
+      //   nearby:[],
+      //   jenisgedung: [],
+      // },
+
       modalDelete: false,
-      // modalEdit: false,
+      modalEdit: false,
 
     }
   },
@@ -152,13 +175,12 @@ export default {
         })
     },
     editGedung(id) {
-
       axios
         .get('https://officebooking-app-pn6n3.ondigitalocean.app/admin/gedung/' + id)
-
         .then(response => {
           this.editGedungQuery = response.data.data
-          this.fetchGedung()
+          console.log(this.editGedungQuery)
+          // this.fetchGedung()
         })
         .catch(error => {
           console.log(error)
@@ -167,36 +189,38 @@ export default {
     },
     updateGedung(id) {
       axios
-        .put('https://officebooking-app-pn6n3.ondigitalocean.app/admin/gedungs/' + id, {
-          // id: this.editGedungQuery.id,
-          // jenis_gedung: this.editGedungQuery.jenis_gedung,
+        .put('https://officebooking-app-pn6n3.ondigitalocean.app/admin/gedung/' + id, {
+          id: this.editGedungQuery.id,
           name: this.editGedungQuery.name,
           location: this.editGedungQuery.location,
           price: this.editGedungQuery.price,
           latitude: this.editGedungQuery.latitude,
           longitude: this.editGedungQuery.longitude,
-          description: this.editGedungQuery.description
+          description: this.editGedungQuery.description,
+          reviews: this.editGedungQuery.reviews,
+          nearby: this.editGedungQuery.nearby,
+          jenisgedung: this.editGedungQuery.jenisgedung,
         })
         .then(response => {
-          this.fetchGedung(response)
+          this.fetchGedung()
+          console.log(response)
           this.modalEdit = true
-
         })
         .catch(error => {
           console.log(error)
         })
 
     },
-    // deleteGedung(id) {
-    //   axios.delete('https://officebooking-app-pn6n3.ondigitalocean.app/admin/gedung/' + id)
-    //     .then(response => {
-    //       this.fetchGedung(response)
-    //       console.log(id)
-    //     })
-    //     .catch(error => {
-    //       console.log(error)
-    //     })
-    // }
+    deleteGedung(id) {
+      axios.delete('https://officebooking-app-pn6n3.ondigitalocean.app/admin/gedung/' + id)
+        .then(response => {
+          this.fetchGedung(response)
+          console.log(id)
+        })
+        .catch(error => {
+          console.log(error)
+        })
+    }
   }
 }
 

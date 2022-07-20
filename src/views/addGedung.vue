@@ -11,7 +11,7 @@
         <p>Pembuatan Gedung Baru</p>
         <br>
           <div>
-            <b-form @buat="onSubmit" @batal="onReset" v-if="show">
+            <b-form  @batal="onReset" v-if="show">
                 <b-row class="mt-2">
                 <b-col sm="2" class="text-end">
                   <b-form-group id="input-group-1" label="Jenis Gedung :" label-for="input-1"></b-form-group>
@@ -105,7 +105,7 @@
 
                 <br>
                 <b-col sm="6">
-                  <b-button type="buat"  variant="success">Buat</b-button>
+                  <b-button type="buat"  variant="success" @click="tambahGedung()">Buat</b-button>
                   <b-button type="batal" variant="outline-success"> Batal </b-button>
                 </b-col>
             </b-form>
@@ -128,6 +128,7 @@ import Sidebar from '@/components/sidebarComponent.vue'
 import Breadcrumb from '../components/breadcrumb.vue'
 import FooterComponent from '@/components/footerComponent.vue'
 import LiveChatBtn from '@/components/liveChatBtn.vue'
+import axios from 'axios'
 
 export default {
   name: 'addGedung',
@@ -175,7 +176,18 @@ export default {
         this.$nextTick(() => {
           this.show = true
         })
-      }
+      },
+      tambahGedung() {
+        axios
+        .post('https://officebooking-app-pn6n3.ondigitalocean.app/admin/gedung/', this.form)
+        .then(response => {
+          console.log(response)
+          // this.$router.push('/gedung')
+        })
+        .catch(error => {
+          console.log(error)
+        })
+      },
     }
   }
 </script>
