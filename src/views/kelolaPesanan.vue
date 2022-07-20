@@ -14,14 +14,14 @@
 		<b-card v-else>
 			<p>Kelola Pesanan</p>
 			<b-table striped hover :items="items" :fields="fields">
-				<template #cell(Order_Status)="data">
+				<template #cell(Permintaan)="data">
 					<div v-if="data.item.Status === 'Belum Diterima'">
 						<b-button variant="success" @click="EditPesanan(data.item)"
 							>Edit</b-button
 						>
-						<b-button variant="info" @click="BCPesanan()">Kirim Bc</b-button>
+						<b-button variant="info" @click="BCPesanan()">Kirim Kode</b-button>
 					</div>
-					<div v-else>Sudah Diterima</div>
+					<div v-else>Kode Sudah Dikirim</div>
 				</template>
 			</b-table>
 		</b-card>
@@ -60,7 +60,7 @@
 					"Total_Harga",
 					"Tanggal_Masuk",
 					"Tanngal_Keluar",
-					"Order_Status",
+					"Permintaan",
 				],
 				items: [],
 				loading: true,
