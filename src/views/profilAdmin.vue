@@ -7,30 +7,30 @@
     <br />
     <Breadcrumb />
     <b-card>
-    <p>Perbarui Password Admin</p>
+      <p>Perbarui Password Admin</p>
       <b-container fluid class="row mb-3">
         <b-row class="my-1">
           <b-col sm="2" class="row mb-3">
-            <label for="input-small" class="text1"><strong>Password Lama:</strong></label>
+            <label class="text1"><strong>Password Lama:</strong></label>
           </b-col>
           <b-col sm="10">
-            <b-form-input id="input-small" type="password" size="sm" placeholder="Masukkan Password Lama"></b-form-input>
+            <b-form-input type="password" size="sm" placeholder="Masukkan Password Lama" v-model="resetPassQuery.password_lama"></b-form-input>
           </b-col>
           <b-col sm="2" class="row mb-3">
-            <label for="input-small" class="text1"><strong>Password Baru:</strong></label>
+            <label class="text1"><strong>Password Baru:</strong></label>
           </b-col>
           <b-col sm="10">
-            <b-form-input id="input-small" type="password" size="sm" placeholder="Masukkan Password Baru"></b-form-input>
+            <b-form-input type="password" size="sm" placeholder="Masukkan Password Baru" v-model="resetPassQuery.password_baru"></b-form-input>
           </b-col>
           <b-col sm="2" class="row mb-3">
-            <label for="input-small" class="text1"><strong>Konfirmasi Password Baru:</strong></label>
+            <label for="input-small3" class="text1"><strong>Konfirmasi Password Baru:</strong></label>
           </b-col>
           <b-col sm="10">
-            <b-form-input id="input-small" type="password" size="sm" placeholder="Konfirmasi Password Baru"></b-form-input>
+            <b-form-input type="password" size="sm" placeholder="Konfirmasi Password Baru" v-model="resetPassQuery.konfirmasi_password"></b-form-input>
           </b-col>
           <b-col sm="2" class="row"> </b-col>
           <b-col sm="2">
-            <button class="btn btn-success float-right mt-3">Ubah</button>
+            <button class="btn btn-success float-right mt-3" @click="editPassword(resetPassQuery)">Ubah</button>
             <button class="btn btn-success float-right mt-3">Batal</button>
           </b-col>
         </b-row>
@@ -45,33 +45,61 @@
 import Navbar from '@/components/navbarComponent.vue';
 import Sidebar from '@/components/sidebarComponent.vue';
 import FooterComponent from '@/components/footerComponent.vue';
-import Breadcrumb from '../components/breadcrumb.vue'
+import Breadcrumb from '../components/breadcrumb.vue';
+import axios from 'axios';
+
 export default {
   name: 'profilAdmin',
   components: {
     Navbar,
     Sidebar,
     FooterComponent,
-    Breadcrumb
+    Breadcrumb,
+  },
+  data() {
+    return {
+      resetPassQuery: {
+        password_lama: '',
+        password_baru: '',
+        konfirmasi_password: '',
+      },
+    };
+  },
+  methods: {
+    editPassword() {
+      axios
+        .put('https://officebooking-app-pn6n3.ondigitalocean.app/admin/profile/4', {
+          password_lama: this.resetPassQuery.password,
+          password_baru: this.resetPassQuery.newpassword,
+          konfirmasi_password: this.resetPassQuery.Confirmpassword,
+        })
+        .then((response) => {
+          this.editPassword = this.data;
+          console.log(response);
+        })
+        .catch((error) => {
+          console.log(error);
+        });
+    },
   },
 };
 </script>
 
 <style scoped>
-p{
+p {
   font-family: 'Poppins';
   font-style: normal;
   font-size: 19px;
-  font-weight:600;
+  font-weight: 600;
   line-height: 33px;
   display: flex;
-  color: #1CAB59;
+  color: #1cab59;
 }
-.card{
- margin-right: 25px;
- margin-left: 25px;
- margin-bottom: 40px;
- margin-top: 0px;
+.card {
+  margin-right: 25px;
+  margin-left: 25px;
+  margin-bottom: 40px;
+  margin-top: 0px;
 }
 .Admin {
   background-color: #e5e5e5 !important;

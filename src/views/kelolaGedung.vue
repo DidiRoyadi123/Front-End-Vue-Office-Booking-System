@@ -117,7 +117,6 @@ import FooterComponent from '@/components/footerComponent.vue'
 import LiveChatBtn from '@/components/liveChatBtn.vue'
 import axios from 'axios'
 
-
 export default {
   name: 'kelolaGedung',
   components: {

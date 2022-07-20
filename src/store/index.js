@@ -1,3 +1,5 @@
+/** @format */
+
 import Vue from "vue";
 import Vuex from "vuex";
 import axios from "axios";
@@ -9,49 +11,47 @@ Vue.use(Vuex);
 Vue.use(VueAxios, axios);
 
 export default new Vuex.Store({
-  state: {
-  users:[],
-  status: "",
-  email: "",
-  password: "",
-
-  },
-  getters: {
-  
-  },
-  mutations: {
-   getStatusLogin(state,payload){
-    state.users = payload
-   },
-   updateEmail(state,payload){
-    state.email = payload
-   },
-    updatePassword(state,payload){
-    state.password = payload
-   }
-  },
-  actions: {
-   loginAdmin (store){
-    axios
-    .post('https://officebooking-app-pn6n3.ondigitalocean.app/login',{email: store.state.email, password: store.state.password})
-    .then(response => {
-      console.log(response.data.status)
-      store.commit('getStatusLogin', response.data.status);
-        if (response.data.status==true) {
-            router.push({path: '/beranda'});
-        } 
-    })
-    .catch(error => {
-      console.log(error)
-      if (error.response.status==401) {
-        alert("Email atau Password Salah")
-      }
-      this.errored = true
-    })
-    
-  }
-
-  },
-  modules: {
-  },
+	state: {
+		users: [],
+		status: "",
+		email: "",
+		password: "",
+	},
+	getters: {},
+	mutations: {
+		getStatusLogin(state, payload) {
+			state.users = payload;
+		},
+		updateEmail(state, payload) {
+			state.email = payload;
+		},
+		updatePassword(state, payload) {
+			state.password = payload;
+		},
+	},
+	actions: {
+		loginAdmin(store) {
+			axios
+				.post("https://officebooking-app-pn6n3.ondigitalocean.app/login", {
+					email: store.state.email,
+					password: store.state.password,
+				})
+				.then(response => {
+					// console.log(response.data);
+					localStorage.setItem("token", response.data.token);
+					store.commit("getStatusLogin", response.data.status);
+					if (response.data.status == true) {
+						router.push({ path: "/beranda" });
+					}
+				})
+				.catch(error => {
+					console.log(error);
+					if (error.response.status == 401) {
+						alert("Email atau Password Salah");
+					}
+					this.errored = true;
+				});
+		},
+	},
+	modules: {},
 });
