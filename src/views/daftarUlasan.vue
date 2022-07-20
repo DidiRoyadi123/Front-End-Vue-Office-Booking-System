@@ -15,7 +15,7 @@
 			<p>Daftar Ulasan</p>
 
 			<b-table striped hover :items="items" :fields="fields">
-				<template #cell(Aksi)="data">
+				<template #cell(Permintaan)="data">
 					<b-button variant="danger" @click="reviewHidden(data.item.IdPengguna)"
 						>Hapus</b-button
 					>
@@ -60,7 +60,7 @@
 					{ key: "NamaGedung", label: "Nama Gedung" },
 					{ key: "Rating", label: "Rating" },
 					{ key: "Review", label: "Review" },
-					"Aksi",
+					"Permintaan",
 				],
 				items: [],
 			};
