@@ -19,7 +19,7 @@
             <b-th>Jenis Gedung</b-th>
             <b-th>Lokasi</b-th>
             <b-th>Harga</b-th>
-            <b-th>Aksi</b-th>
+            <b-th>Permintaan</b-th>
           </b-tr>
         </b-thead>
         <b-tbody>
